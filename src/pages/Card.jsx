@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Start from '../components/start'
+import Start from '../components/Start'
 import Second from '../components/Second'
 import Third from '../components/Third'
 import Four from '../components/Four'

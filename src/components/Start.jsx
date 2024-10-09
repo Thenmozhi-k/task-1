@@ -4,7 +4,7 @@ import icon1 from '../assets/Image.png';
 import icon2 from '../assets/Image (1).png';
 import icon3 from '../assets/Image (2).png'
 
-const start = ({ onNavigate }) => {
+const Start = ({ onNavigate }) => {
   return (
     <div className="flex justify-center items-center h-screen bg-black">
         <div className="relative w-[650px] h-[620px] bg-white  shadow-lg p-2  flex flex-col justify-center items-center">
@@ -89,4 +89,4 @@ Bridge London
   );
 };
 
-export default start;
+export default Start;
