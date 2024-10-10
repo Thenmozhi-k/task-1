@@ -6,7 +6,7 @@ const Second = ({ onNavigate }) => {
     <div className="flex justify-center items-center h-screen bg-black">
       <div className="relative w-[500px] h-[500px] bg-white shadow-lg p-2 flex flex-col items-center">
         <div
-          className="relative shadow-lg mt-8 p-6 flex flex-col justify-between"
+          className="relative shadow-lg mt-5 p-6 flex flex-col justify-between"
           style={{
             backgroundImage: `url(${first})`,
             backgroundSize: 'cover',
