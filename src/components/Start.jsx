@@ -7,15 +7,15 @@ import icon3 from '../assets/Image (2).png'
 const Start = ({ onNavigate }) => {
   return (
     <div className="flex justify-center items-center h-screen bg-black">
-        <div className="relative w-[650px] h-[620px] bg-white  shadow-lg p-2  flex flex-col justify-center items-center">
+        <div className="relative w-[550px] h-[590px] bg-white  shadow-lg p-2  flex flex-col justify-center items-center">
       <div
         className="relative   shadow-lg p-6 flex flex-col justify-between"
         style={{
           backgroundImage: `url(${first})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          width: '600px', 
-          height: '550px',
+          width: '500px', 
+          height: '520px',
           
         }}
       >
@@ -47,7 +47,7 @@ Bridge London
         
         {/* Information Section */}
         
-        <div className="relative z-10 flex mt-[219px] ml-1 justify-around text-white mb-0">
+        <div className="relative z-10 flex mt-[179px]  justify-around text-white mb-0">
           <div className="text-center">
             <img src={icon1} alt="" className='w-[50px] h-[50px] mb-3' />
             <div className="text-xs">Location</div>
@@ -74,7 +74,7 @@ Bridge London
 
       {/* Button Section */}
         
-      <div className="relative z-10 flex justify-between mt-6 mb-1 w-full px-6">
+      <div className="relative z-10 flex justify-between mt-4 mb-1 w-full px-6">
   <button className="border-2 border-[#F58555] text-[#FA4428] px-5 rounded-md text-lg font-semibold   mr-2">
     Hotel Details
   </button>
