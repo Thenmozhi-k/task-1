@@ -7,7 +7,7 @@ import icon3 from '../assets/Image (2).png'
 const Start = ({ onNavigate }) => {
   return (
     <div className="flex justify-center items-center h-screen bg-black">
-        <div className="relative w-[500px] h-[520px] bg-white  shadow-lg p-2  flex flex-col justify-center items-center">
+        <div className="relative w-[500px] h-[500px] bg-white  shadow-lg p-2  flex flex-col justify-center items-center">
       <div
         className="relative   shadow-lg p-6 flex flex-col justify-between"
         style={{
@@ -15,7 +15,7 @@ const Start = ({ onNavigate }) => {
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           width: '480px', 
-          height: '450px',
+          height: '430px',
           
         }}
       >
@@ -49,19 +49,19 @@ Bridge London
         
         <div className="relative z-10 flex mt-[149px]  justify-around text-white mb-0">
           <div className="text-center">
-            <img src={icon1} alt="" className='w-[50px] h-[50px] mb-2' />
+            <img src={icon1} alt="" className='w-[40px] h-[40px] mb-1 ' />
             <div className="text-[11px]">Location</div>
-            <div className="text-md text-[#B56E64]">London</div>
+            <div className="text-md text-[#B56E64] mt-[-3px]">London</div>
           </div>
           <div className="text-center">
-          <img src={icon2} alt="" className='w-[50px] h-[50px] mb-2' />
+          <img src={icon2} alt="" className='w-[40px] h-[40px] mb-1' />
             <div className="text-[11px]">Start Date</div>
-            <div className="text-md text-[#B56E64]">date</div>
+            <div className="text-md text-[#B56E64] mt-[-3px]">date</div>
           </div>
           <div className="text-center">
-          <img src={icon3} alt="" className='w-[50px] h-[50px] mb-2' />
+          <img src={icon3} alt="" className='w-[40px] h-[40px] mb-1' />
             <div className="text-[11px]">Check out</div>
-            <div className="text-md text-[#B56E64]">date</div>
+            <div className="text-md text-[#B56E64] mt-[-3px]">date</div>
           </div>
         </div>
         </div>
