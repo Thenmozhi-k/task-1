@@ -7,15 +7,15 @@ import icon3 from '../assets/Image (2).png'
 const Start = ({ onNavigate }) => {
   return (
     <div className="flex justify-center items-center h-screen bg-black">
-        <div className="relative w-[550px] h-[590px] bg-white  shadow-lg p-2  flex flex-col justify-center items-center">
+        <div className="relative w-[500px] h-[540px] bg-white  shadow-lg p-2  flex flex-col justify-center items-center">
       <div
         className="relative   shadow-lg p-6 flex flex-col justify-between"
         style={{
           backgroundImage: `url(${first})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          width: '500px', 
-          height: '520px',
+          width: '480px', 
+          height: '480px',
           
         }}
       >
@@ -34,11 +34,11 @@ const Start = ({ onNavigate }) => {
               <span className="text-gray-500 text-2xl">★</span>
             </div>
           </div>
-          <div className="bg-[#502813] w-[435px] h-[30px] border mt-3 border-[#7B3F26] text-white py-1 px-3 rounded-lg text-[13px] font-timmy">
+          <div className="bg-[#502813] w-[350px] h-[25px] border mt-3 border-[#7B3F26] text-white py-1 px-3 rounded-lg text-[10px] font-timmy">
             Superior Room, Accessible (Westminster Superior Room)
           </div>
           {/* Title Section */}
-        <h1 className="relative z-10 mt-4 text-white text-2xl font-semibold mb-6">
+        <h1 className="relative z-10 mt-4 text-white text-xl font-semibold mb-6">
         Park Plaza Westminster Bridge <br />
 London Park Plaza Westminster <br />
 Bridge London
@@ -47,7 +47,7 @@ Bridge London
         
         {/* Information Section */}
         
-        <div className="relative z-10 flex mt-[179px]  justify-around text-white mb-0">
+        <div className="relative z-10 flex mt-[150px]  justify-around text-white mb-0">
           <div className="text-center">
             <img src={icon1} alt="" className='w-[50px] h-[50px] mb-3' />
             <div className="text-xs">Location</div>
@@ -74,7 +74,7 @@ Bridge London
 
       {/* Button Section */}
         
-      <div className="relative z-10 flex justify-between mt-4 mb-1 w-full px-6">
+      <div className="relative z-10 flex justify-between mt-3 mb-1 w-full px-6">
   <button className="border-2 border-[#F58555] text-[#FA4428] px-5 rounded-md text-lg font-semibold   mr-2">
     Hotel Details
   </button>
