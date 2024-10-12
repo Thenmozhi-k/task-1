@@ -8,6 +8,9 @@ body {
 
 
 input::placeholder {
-  color: #CA3F2A; 
-  font-weight: 600;
+  /* color: #CA3F2A;  */
+  color: white;
+  font-weight: lighter;
+  text-align: center;
+  font-size: medium;
 }
