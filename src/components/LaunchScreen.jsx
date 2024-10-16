@@ -22,7 +22,7 @@ const LaunchScreen = ({ onNavigate }) => {
         >
           <div className='md:ml-[330px] sm:ml-[230px]'>
             <img src={buk} alt="" className='md:w-[70px] w-[50px] md:ml-12 sm:ml-[35px]' />
-            <div className="flex items-center  md:mt-[140px] sm:mt-[110px]">
+            <div className="flex items-center  md:mt-[140px] sm:mt-[90px]">
               <span className="text-white md:text-sm sm:text-xs mr-2">4.0</span>
               <div className="flex ">
                 <span className="text-red-600  md:text-lg sm:text-md md:mr-1">★</span>
@@ -55,7 +55,7 @@ const LaunchScreen = ({ onNavigate }) => {
                   <img src={vline} alt="" className='w-[1.5px] md:h-[73px] sm:h-[50px] ml-7 md:mt-1' />
                 </div>
 
-                <div className='flex md:ml-[-35px] sm:ml-[-15px]'>
+                <div className='flex md:ml-[-35px] sm:ml-[-12px]'>
                   <div className='flex-col flex'>
                     <img src={icon2} alt="" className='md:w-8 md:h-8 sm:w-6 sm:h-6' />
                     <p className='md:text-[9px] sm:text-[7px] text-white mt-2'>Check Out</p>
@@ -65,7 +65,7 @@ const LaunchScreen = ({ onNavigate }) => {
                   <img src={vline} alt="" className='w-[1.5px] md:h-[73px] sm:h-[50px] ml-7 md:mt-1' />
                 </div>
 
-                <div className='flex md:ml-[-50px] sm:ml-[-30px]'>
+                <div className='flex md:ml-[-50px] sm:ml-[-20px]'>
                   <div className='flex-col flex'>
                     <img src={icon3} alt="" className='md:w-8 md:h-8 sm:w-6 sm:h-6' />
                     <p className='md:text-[9px] sm:text-[7px] text-white mt-2'>Location</p>
@@ -76,7 +76,7 @@ const LaunchScreen = ({ onNavigate }) => {
             </div>
 
             {/* button */}
-            <div className='flex justify-center items-center gap-4 mt-6'>
+            <div className='flex justify-center items-center gap-4 md:mt-6 sm:mt-3'>
               <button className='text-white bg-[#331D19] border border-[#7B3F26] md:px-9 md:py-2 sm:text-xs sm:px-4 sm:py-1 md:text-[16px] rounded-lg '>Hotel Details</button>
               <button className='text-white bg-[#CA3F2A] border border-[#FFE3E3] md:px-9 md:py-2 sm:text-xs sm:px-4 sm:py-1 md:text-[16px] rounded-lg border-opacity-50'
                onClick={onNavigate}>Buy Booking</button>
