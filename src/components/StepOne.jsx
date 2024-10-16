@@ -23,7 +23,7 @@ const StepOne = ({ onNavigate, onBack }) => {
           </div>
 
           {/* Content */}
-          <div className="md:mt-48 sm:mt-20">
+          <div className="md:mt-48 sm:mt-28">
             <div className="flex">
               <div className="flex ml-[-15px]">
                 <div className="text-white flex">
@@ -51,26 +51,26 @@ const StepOne = ({ onNavigate, onBack }) => {
             </div>
 
             {/* Form */}
-            <div className="flex flex-col items-center mt-10">
+            <div className="flex flex-col items-center md:mt-10 sm:mt-5">
               <input
                 type="email"
                 placeholder="Email address"
-                className="border border-[#373737] bg-[#222222] sm:text-xs rounded-md p-2 py-1 mb-4 w-[70%] max-w-[400px] focus:outline-none focus:ring-[0.5px] focus:ring-[#FFCACA] text-white text-center"
+                className="border border-[#373737] bg-[#222222] sm:text-xs md:text-md rounded-md p-2 py-1 mb-4 w-[70%] max-w-[400px] focus:outline-none focus:ring-[0.5px] focus:ring-[#FFCACA] text-white text-center"
               />
               <input
                 type="tel"
                 placeholder="Mobile number"
-                className="border border-[#373737] bg-[#222222] sm:text-xs rounded-md p-2 py-1 mb-9 w-[70%] max-w-[400px] focus:outline-none focus:ring-[0.5px] focus:ring-[#FFCACA] text-white text-center"
+                className="border border-[#373737] bg-[#222222] sm:text-xs md:text-md rounded-md p-2 py-1 mb-9 w-[70%] max-w-[400px] focus:outline-none focus:ring-[0.5px] focus:ring-[#FFCACA] text-white text-center"
               />
               <div className="flex w-full items-center justify-center">
                 <img
                   src={arrow}
                   alt="arrow"
-                  className="w-9 h-9 mr-4 cursor-pointer"
+                  className="md:w-9 md:h-9 sm:w-5 sm:h-5 mr-4 cursor-pointer"
                   onClick={onBack}
                 />
                 <button
-                  className="bg-[#CA3F2A] sm:text-xs text-white px-[110px] py-1 rounded-md text-lg border-[#FFE3E3] border border-opacity-50"
+                  className="bg-[#CA3F2A] sm:text-xs md:text-md text-white px-[110px] py-1 rounded-md text-lg border-[#FFE3E3] border border-opacity-50"
                   onClick={onNavigate}
                 >
                   Next
