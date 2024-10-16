@@ -8,19 +8,18 @@ import arrow from '../assets/updated/arrow.png';
 const StepOne = ({ onNavigate, onBack }) => {
   return (
     <div className="flex justify-center items-center h-screen bg-black">
-      <div className="relative w-[500px] h-[500px] bg-[#161616] shadow-lg p-2 flex flex-col items-center">
+      <div className="relative md:w-[500px] md:h-[500px] sm:h-[350px] sm:w-[350px] bg-[#161616] shadow-lg p-2 flex flex-col items-center">
         <div
-          className="relative shadow-lg p-6 flex flex-col justify-between"
+          className="relative shadow-lg md:w-[485px] md:h-[230px] sm:h-[160px] sm:w-[335px] p-6 flex flex-col justify-between"
           style={{
             backgroundImage: `url(${first})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
-            width: '485px',
-            height: '230px',
+           
           }}
         >
-          <div className="ml-[330px]">
-            <img src={buk} alt="buk" className="w-[70px] ml-12" />
+          <div className="md:ml-[330px] sm:ml-[200px]">
+            <img src={buk} alt="buk" className="md:w-[70px] w-[50px] md:ml-12 sm:ml-[35px]" />
           </div>
 
           {/* Content */}
@@ -28,16 +27,16 @@ const StepOne = ({ onNavigate, onBack }) => {
             <div className="flex">
               <div className="flex ml-[-15px]">
                 <div className="text-white flex">
-                  <img src={step} alt="step 1" className="w-7 h-7" />
-                  <p className="text-xs mt-2 ml-3">Step 1</p>
+                  <img src={step} alt="step 1" className="md:w-7 md:h-7 sm:w-5 sm:h-5" />
+                  <p className="md:text-xs sm:text-[10px] mt-2 ml-3">Step 1</p>
                 </div>
-                <div className="bg-[#CA3F2A] h-[0.5px] w-[90px] mt-4 ml-3"></div>
+                <div className="bg-[#CA3F2A] h-[0.5px] md:w-[90px] sm:w-[80px] mt-4 ml-3"></div>
               </div>
 
               {/* Progress indicators */}
               <div className="flex ml-2">
                 <div className="text-white flex">
-                  <img src={step1} alt="step 2" className="w-7 h-7" />
+                  <img src={step1} alt="step 2" className="md:w-7 md:h-7 sm:w-5 sm:h-5" />
                   <p className="text-xs mt-2 ml-3 text-[#B1B1B1]">Step 2</p>
                 </div>
                 <div className="bg-[#CA3F2A] h-[0.5px] w-[90px] mt-4 ml-3"></div>
@@ -45,7 +44,7 @@ const StepOne = ({ onNavigate, onBack }) => {
 
               <div className="flex ml-2">
                 <div className="text-white flex">
-                  <img src={step1} alt="step 3" className="w-7 h-7" />
+                  <img src={step1} alt="step 3" className="md:w-7 md:h-7 sm:w-5 sm:h-5" />
                   <p className="text-xs mt-2 ml-3 text-[#B1B1B1]">Step 3</p>
                 </div>
               </div>
