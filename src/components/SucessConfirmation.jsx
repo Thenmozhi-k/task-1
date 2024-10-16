@@ -33,7 +33,7 @@ const SucessConfirmation = () => {
            <p className='md:text-[10px] sm:text-[6px] text-[#CACACA]'>0xbb9db37ae6a0b1cf4d09932b269255dbcc961228e572cc3ee526a397268aa243</p>
          </div>
 
-         <button className="bg-[#CA3F2A] text-white md:px-[40px] md:mt-8 sm:px-[30px] sm:mt-4 py-1 rounded-md text-lg border-[#FFE3E3] border border-opacity-50   "
+         <button className="bg-[#CA3F2A] text-white md:px-[40px] md:mt-8 sm:px-[30px] sm:mt-4 py-1 rounded-md md:text-lg sm:text-xs border-[#FFE3E3] border border-opacity-50   "
           >
            Check my Bookings
           </button>
