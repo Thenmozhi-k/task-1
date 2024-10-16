@@ -14,7 +14,7 @@ const LaunchScreen = ({ onNavigate }) => {
         <div
           className="relative shadow-lg  p-6 flex flex-col justify-between"
           style={{
-            backgroundImage: url(`${first}`),
+            backgroundImage: `url(${first})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             width: '485px',
