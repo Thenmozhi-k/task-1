@@ -28,7 +28,7 @@ const StepOne = ({ onNavigate, onBack }) => {
               <div className="flex ml-[-15px]">
                 <div className="text-white flex">
                   <img src={step} alt="step 1" className="md:w-7 md:h-7 sm:w-5 sm:h-5" />
-                  <p className="md:text-xs sm:text-[10px] md:mt-2 sm:mt-1 ml-3">Step 1</p>
+                  <p className="md:text-xs sm:text-[10px] md:mt-2 sm:mt-1 md:ml-3 sm:ml-1">Step 1</p>
                 </div>
                 <div className="bg-[#CA3F2A] h-[0.5px] md:w-[90px] sm:w-[45px] md:mt-4 sm:mt-2 md:ml-3"></div>
               </div>
@@ -37,7 +37,7 @@ const StepOne = ({ onNavigate, onBack }) => {
               <div className="flex ml-2">
                 <div className="text-white flex">
                   <img src={step1} alt="step 2" className="md:w-7 md:h-7 sm:w-5 sm:h-5" />
-                  <p className="md:text-xs sm:text-[10px] md:mt-2 sm:mt-1 ml-3 text-[#B1B1B1]">Step 2</p>
+                  <p className="md:text-xs sm:text-[10px] md:mt-2 sm:mt-1 md:ml-3 sm:ml-1 text-[#B1B1B1]">Step 2</p>
                 </div>
                 <div className="bg-[#CA3F2A] h-[0.5px] md:w-[90px] sm:w-[45px] md:mt-4 sm:mt-2 md:ml-3"></div>
               </div>
@@ -45,7 +45,7 @@ const StepOne = ({ onNavigate, onBack }) => {
               <div className="flex ml-2">
                 <div className="text-white flex">
                   <img src={step1} alt="step 3" className="md:w-7 md:h-7 sm:w-5 sm:h-5" />
-                  <p className="md:text-xs sm:text-[10px] md:mt-2 sm:mt-1 ml-3 text-[#B1B1B1]">Step 3</p>
+                  <p className="md:text-xs sm:text-[10px] md:mt-2 sm:mt-1 md:ml-3 sm:ml-1 text-[#B1B1B1]">Step 3</p>
                 </div>
               </div>
             </div>
@@ -60,9 +60,9 @@ const StepOne = ({ onNavigate, onBack }) => {
               <input
                 type="tel"
                 placeholder="Mobile number"
-                className="border border-[#373737] bg-[#222222] sm:text-xs md:text-md rounded-md md:p-2 md:py-2 sm:py-1 mb-14 w-[70%] max-w-[400px] focus:outline-none focus:ring-[0.5px] focus:ring-[#FFCACA] text-white text-center"
+                className="border border-[#373737] bg-[#222222] sm:text-xs md:text-md rounded-md md:p-2 md:py-2 sm:py-1 mb-9 w-[70%] max-w-[400px] focus:outline-none focus:ring-[0.5px] focus:ring-[#FFCACA] text-white text-center"
               />
-              <div className="flex w-full sm:mt-[-17px] items-center justify-center">
+              <div className="flex w-full sm:mt-[-17px] md:mt-2 items-center justify-center">
                 <img
                   src={arrow}
                   alt="arrow"
