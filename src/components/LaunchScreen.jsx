@@ -10,20 +10,21 @@ import vline from '../assets/updated/Line 62.png';
 const LaunchScreen = ({ onNavigate }) => {
   return (
     <div className="flex justify-center items-center h-screen bg-black">
-      <div className="relative lg:w-[500px] lg:h-[500px] sm:w-[300px] sm:h-[300px] bg-[#161616] shadow-lg p-2 flex flex-col items-center">
+      <div className="relative w-[500px] h-[500px]  bg-[#161616] shadow-lg p-2 flex flex-col items-center">
         <div
-          className="relative shadow-lg w-full  p-6 flex flex-col justify-between"
+          className="relative shadow-lg  p-6 flex flex-col justify-between"
           style={{
             backgroundImage: `url(${first})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
-           
+            width: '485px',
             height: '230px',
           }}
+          
         >
           <div className='ml-[330px]'>
             <img src={buk} alt="" className='w-[70px] ml-12' />
-            <div className="flex items-center mt-[140px]">
+            <div className="flex items-center  mt-[140px]">
               <span className="text-white text-sm mr-2">4.0</span>
               <div className="flex ">
                 <span className="text-red-600 text-lg mr-1">★</span>
@@ -37,10 +38,10 @@ const LaunchScreen = ({ onNavigate }) => {
 
           {/* content */}
           <div className='mt-5'>
-            <ul className='list-disc list-inside text-[#FFC4BB] lg:text-xs sm:text-[6px]'>
-              <li ><span className='lg:ml-[-6px]'>Superior Room, Accessible (Westminster Superior Room)</span></li>
+            <ul className='list-disc list-inside text-[#FFC4BB] text-xs'>
+              <li ><span className='ml-[-6px]'>Superior Room, Accessible (Westminster Superior Room)</span></li>
             </ul>
-            <h1 className='text-white lg:text-lg sm:text-[sm] mt-1'>Park Plaza Westminster Bridge London Park Plaza Westminster Bridge London</h1>
+            <h1 className='text-white text-lg mt-1'>Park Plaza Westminster Bridge London Park Plaza Westminster Bridge London</h1>
 
             <div>
               {/* Adjusted line */}
