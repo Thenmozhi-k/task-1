@@ -10,7 +10,7 @@ import vline from '../assets/updated/Line 62.png';
 const LaunchScreen = ({ onNavigate }) => {
   return (
     <div className="flex justify-center items-center h-screen bg-black">
-      <div className="relative w-[500px] h-[500px] sm:h-[300px] sm:w-[300px]   bg-[#161616] shadow-lg p-2 flex flex-col items-center">
+      <div className="relative w-[500px] h-[500px] h-xs w-xs   bg-[#161616] shadow-lg p-2 flex flex-col items-center">
         <div
           className="relative shadow-lg w-[485px] h-[230px] sm:h-[185px] sm:w-[385px]  p-6 flex flex-col justify-between"
           style={{
