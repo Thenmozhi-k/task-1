@@ -20,7 +20,7 @@ const LaunchScreen = ({ onNavigate }) => {
             
           }}
         >
-          <div className='md:ml-[330px] ml-[260px]'>
+          <div className='md:ml-[330px] sm:ml-[260px]'>
             <img src={buk} alt="" className='md:w-[70px] w-[50px] md:ml-12 sm:ml-[35px]' />
             <div className="flex items-center  md:mt-[140px] sm:mt-[110px]">
               <span className="text-white md:text-sm sm:text-xs mr-2">4.0</span>
@@ -35,7 +35,7 @@ const LaunchScreen = ({ onNavigate }) => {
           </div>
 
           {/* content */}
-          <div className='mt-5'>
+          <div className='md:mt-5 sm:mt-2'>
             <ul className='list-disc list-inside text-[#FFC4BB] md:text-xs sm:text-[9px]'>
               <li ><span className='ml-[-6px]'>Superior Room, Accessible (Westminster Superior Room)</span></li>
             </ul>
@@ -55,7 +55,7 @@ const LaunchScreen = ({ onNavigate }) => {
                   <img src={vline} alt="" className='w-[1.5px] md:h-[73px] sm:h-[50px] ml-7 md:mt-1' />
                 </div>
 
-                <div className='flex md:ml-[-35px] sm:ml-[-20px]'>
+                <div className='flex md:ml-[-35px] sm:ml-[-15px]'>
                   <div className='flex-col flex'>
                     <img src={icon2} alt="" className='md:w-8 md:h-8 sm:w-6 sm:h-6' />
                     <p className='md:text-[9px] sm:text-[7px] text-white mt-2'>Check Out</p>
@@ -65,7 +65,7 @@ const LaunchScreen = ({ onNavigate }) => {
                   <img src={vline} alt="" className='w-[1.5px] md:h-[73px] sm:h-[50px] ml-7 md:mt-1' />
                 </div>
 
-                <div className='flex md:ml-[-50px] ml-[-40px]'>
+                <div className='flex md:ml-[-50px] sm:ml-[-30px]'>
                   <div className='flex-col flex'>
                     <img src={icon3} alt="" className='md:w-8 md:h-8 sm:w-6 sm:h-6' />
                     <p className='md:text-[9px] sm:text-[7px] text-white mt-2'>Location</p>
