@@ -40,7 +40,7 @@ const LaunchScreen = ({ onNavigate }) => {
             <ul className='list-disc list-inside text-[#FFC4BB] lg:text-xs sm:text-[6px]'>
               <li ><span className='lg:ml-[-6px]'>Superior Room, Accessible (Westminster Superior Room)</span></li>
             </ul>
-            <h1 className='text-white lg:text-lg sm:text[sm] mt-1'>Park Plaza Westminster Bridge London Park Plaza Westminster Bridge London</h1>
+            <h1 className='text-white lg:text-lg sm:text-[sm] mt-1'>Park Plaza Westminster Bridge London Park Plaza Westminster Bridge London</h1>
 
             <div>
               {/* Adjusted line */}
