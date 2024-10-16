@@ -12,7 +12,7 @@ const LaunchScreen = ({ onNavigate }) => {
     <div className="flex justify-center items-center h-screen bg-black">
       <div className="relative md:w-[500px] md:h-[500px] sm:h-[350px] sm:w-[350px]   bg-[#161616] shadow-lg p-2 flex flex-col items-center">
         <div
-          className="relative shadow-lg md:w-[485px] md:h-[230px] sm:h-[165px] sm:w-[330px]  p-6 flex flex-col justify-between"
+          className="relative shadow-lg md:w-[485px] md:h-[230px] sm:h-[160px] sm:w-[330px]  p-6 flex flex-col justify-between"
           style={{
             backgroundImage: `url(${first})`,
             backgroundSize: 'cover',
@@ -65,7 +65,7 @@ const LaunchScreen = ({ onNavigate }) => {
                   <img src={vline} alt="" className='w-[1.5px] md:h-[73px] sm:h-[50px] ml-7 md:mt-1' />
                 </div>
 
-                <div className='flex md:ml-[-50px] sm:ml-[-20px]'>
+                <div className='flex md:ml-[-50px] sm:ml-[-25px]'>
                   <div className='flex-col flex'>
                     <img src={icon3} alt="" className='md:w-8 md:h-8 sm:w-6 sm:h-6' />
                     <p className='md:text-[9px] sm:text-[7px] text-white mt-2'>Location</p>
@@ -76,7 +76,7 @@ const LaunchScreen = ({ onNavigate }) => {
             </div>
 
             {/* button */}
-            <div className='flex justify-center items-center gap-4 md:mt-6 sm:mt-3'>
+            <div className='flex justify-center items-center gap-4 md:mt-6 sm:mt-2'>
               <button className='text-white bg-[#331D19] border border-[#7B3F26] md:px-9 md:py-2 sm:text-xs sm:px-4 sm:py-1 md:text-[16px] rounded-lg '>Hotel Details</button>
               <button className='text-white bg-[#CA3F2A] border border-[#FFE3E3] md:px-9 md:py-2 sm:text-xs sm:px-4 sm:py-1 md:text-[16px] rounded-lg border-opacity-50'
                onClick={onNavigate}>Buy Booking</button>
