@@ -12,7 +12,7 @@ const LaunchScreen = ({ onNavigate }) => {
     <div className="flex justify-center items-center h-screen bg-black">
       <div className="relative md:w-[500px] md:h-[500px] sm:h-[350px] sm:w-[350px]   bg-[#161616] shadow-lg p-2 flex flex-col items-center">
         <div
-          className="relative shadow-lg md:w-[485px] md:h-[230px] sm:h-[160px] sm:w-[330px]  p-6 flex flex-col justify-between"
+          className="relative shadow-lg md:w-[485px] md:h-[230px] sm:h-[160px] sm:w-[335px]  p-6 flex flex-col justify-between"
           style={{
             backgroundImage: `url(${first})`,
             backgroundSize: 'cover',
@@ -20,9 +20,9 @@ const LaunchScreen = ({ onNavigate }) => {
             
           }}
         >
-          <div className='md:ml-[330px] sm:ml-[230px]'>
+          <div className='md:ml-[330px] sm:ml-[200px]'>
             <img src={buk} alt="" className='md:w-[70px] w-[50px] md:ml-12 sm:ml-[35px]' />
-            <div className="flex items-center  md:mt-[140px] sm:mt-[90px]">
+            <div className="flex items-center  md:mt-[140px] sm:mt-[85px]">
               <span className="text-white md:text-sm sm:text-xs mr-2">4.0</span>
               <div className="flex ">
                 <span className="text-red-600  md:text-lg sm:text-md md:mr-1">★</span>
