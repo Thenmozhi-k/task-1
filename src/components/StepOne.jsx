@@ -30,7 +30,7 @@ const StepOne = ({ onNavigate, onBack }) => {
                   <img src={step} alt="step 1" className="md:w-7 md:h-7 sm:w-5 sm:h-5" />
                   <p className="md:text-xs sm:text-[10px] mt-2 ml-3">Step 1</p>
                 </div>
-                <div className="bg-[#CA3F2A] h-[0.5px] md:w-[90px] sm:w-[60px] mt-4 md:ml-3"></div>
+                <div className="bg-[#CA3F2A] h-[0.5px] md:w-[90px] sm:w-[50px] mt-4 md:ml-3"></div>
               </div>
 
               {/* Progress indicators */}
@@ -39,7 +39,7 @@ const StepOne = ({ onNavigate, onBack }) => {
                   <img src={step1} alt="step 2" className="md:w-7 md:h-7 sm:w-5 sm:h-5" />
                   <p className="md:text-xs sm:text-[10px] mt-2 ml-3 text-[#B1B1B1]">Step 2</p>
                 </div>
-                <div className="bg-[#CA3F2A] h-[0.5px] md:w-[90px] sm:w-[60px] mt-4 md:ml-3"></div>
+                <div className="bg-[#CA3F2A] h-[0.5px] md:w-[90px] sm:w-[50px] mt-4 md:ml-3"></div>
               </div>
 
               <div className="flex ml-2">
@@ -51,7 +51,7 @@ const StepOne = ({ onNavigate, onBack }) => {
             </div>
 
             {/* Form */}
-            <div className="flex flex-col items-center md:mt-10 sm:mt-1">
+            <div className="flex flex-col items-center md:mt-10 sm:mt-3">
               <input
                 type="email"
                 placeholder="Email address"
@@ -62,7 +62,7 @@ const StepOne = ({ onNavigate, onBack }) => {
                 placeholder="Mobile number"
                 className="border border-[#373737] bg-[#222222] sm:text-xs md:text-md rounded-md md:p-2 md:py-2 sm:py-1 mb-9 w-[70%] max-w-[400px] focus:outline-none focus:ring-[0.5px] focus:ring-[#FFCACA] text-white text-center"
               />
-              <div className="flex w-full sm:mt-1 items-center justify-center">
+              <div className="flex w-full sm:mt-[-20px] items-center justify-center">
                 <img
                   src={arrow}
                   alt="arrow"
