@@ -10,8 +10,9 @@ export default {
         timmy: ['Timmy', 'sans-serif'],
       },
       screens: {
-        'xs': '425px', 
+        sm: "450px", // Custom small screen starting from 450px
       },
+
     },
   },
   plugins: [],

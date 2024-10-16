@@ -10,9 +10,9 @@ import vline from '../assets/updated/Line 62.png';
 const LaunchScreen = ({ onNavigate }) => {
   return (
     <div className="flex justify-center items-center h-screen bg-black">
-      <div className="relative md:w-[500px] md:h-[500px] h-[400px] w-[400px]   bg-[#161616] shadow-lg p-2 flex flex-col items-center">
+      <div className="relative md:w-[500px] md:h-[500px] sm:h-[450px] sm:w-[450px]   bg-[#161616] shadow-lg p-2 flex flex-col items-center">
         <div
-          className="relative shadow-lg md:w-[485px] md:h-[230px] h-[185px] w-[385px]  p-6 flex flex-col justify-between"
+          className="relative shadow-lg md:w-[485px] md:h-[230px] sm:h-[185px] sm:w-[385px]  p-6 flex flex-col justify-between"
           style={{
             backgroundImage: `url(${first})`,
             backgroundSize: 'cover',
@@ -21,29 +21,29 @@ const LaunchScreen = ({ onNavigate }) => {
           }}
         >
           <div className='md:ml-[330px] ml-[260px]'>
-            <img src={buk} alt="" className='md:w-[70px] w-[50px] md:ml-12 ml-[35px]' />
+            <img src={buk} alt="" className='md:w-[70px] sm:w-[50px] md:ml-12 sm:ml-[35px]' />
             <div className="flex items-center  md:mt-[140px] mt-[110px]">
               <span className="text-white md:text-sm text-xs mr-2">4.0</span>
               <div className="flex ">
-                <span className="text-red-600  md:text-lg text-md md:mr-1">★</span>
-                <span className="text-red-600  md:text-lg text-md md:mr-1">★</span>
-                <span className="text-red-600  md:text-lg text-md md:mr-1">★</span>
-                <span className="text-red-600  md:text-lg text-md md:mr-1">★</span>
-                <span className="text-gray-500 md:text-lg text-md md:mr-1">★</span>
+                <span className="text-red-600  md:text-lg sm:text-md md:mr-1">★</span>
+                <span className="text-red-600  md:text-lg sm:text-md md:mr-1">★</span>
+                <span className="text-red-600  md:text-lg sm:text-md md:mr-1">★</span>
+                <span className="text-red-600  md:text-lg sm:text-md md:mr-1">★</span>
+                <span className="text-gray-500 md:text-lg sm:text-md md:mr-1">★</span>
               </div>
             </div>
           </div>
 
           {/* content */}
           <div className='mt-5'>
-            <ul className='list-disc list-inside text-[#FFC4BB] md:text-xs text-[9px]'>
+            <ul className='list-disc list-inside text-[#FFC4BB] md:text-xs sm:text-[9px]'>
               <li ><span className='ml-[-6px]'>Superior Room, Accessible (Westminster Superior Room)</span></li>
             </ul>
-            <h1 className='text-white md:text-lg text-sm mt-1'>Park Plaza Westminster Bridge London Park Plaza Westminster Bridge London</h1>
+            <h1 className='text-white md:text-lg sm:text-sm mt-1'>Park Plaza Westminster Bridge London Park Plaza Westminster Bridge London</h1>
 
             <div>
               {/* Adjusted line */}
-              <img src={hline} alt="" className='md:mt-4 mt-2' />
+              <img src={hline} alt="" className='md:mt-4 sm:mt-2' />
               <div className='grid grid-cols-3 mt-3'>
                 <div className='flex md:w-[60%]'>
                   <div className='flex-col flex'>
