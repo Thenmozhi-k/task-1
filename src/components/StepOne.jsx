@@ -55,12 +55,12 @@ const StepOne = ({ onNavigate, onBack }) => {
               <input
                 type="email"
                 placeholder="Email address"
-                className="border border-[#373737] bg-[#222222] sm:text-xs md:text-md rounded-md p-2 py-1 mb-4 w-[70%] max-w-[400px] focus:outline-none focus:ring-[0.5px] focus:ring-[#FFCACA] text-white text-center"
+                className="border border-[#373737] bg-[#222222] sm:text-xs md:text-md rounded-md md:p-2 md:py-2 sm:py-1 mb-4 w-[70%] max-w-[400px] focus:outline-none focus:ring-[0.5px] focus:ring-[#FFCACA] text-white text-center"
               />
               <input
                 type="tel"
                 placeholder="Mobile number"
-                className="border border-[#373737] bg-[#222222] sm:text-xs md:text-md rounded-md p-2 py-1 mb-9 w-[70%] max-w-[400px] focus:outline-none focus:ring-[0.5px] focus:ring-[#FFCACA] text-white text-center"
+                className="border border-[#373737] bg-[#222222] sm:text-xs md:text-md rounded-md md:p-2 md:py-2 sm:py-1 mb-9 w-[70%] max-w-[400px] focus:outline-none focus:ring-[0.5px] focus:ring-[#FFCACA] text-white text-center"
               />
               <div className="flex w-full items-center justify-center">
                 <img
@@ -70,7 +70,7 @@ const StepOne = ({ onNavigate, onBack }) => {
                   onClick={onBack}
                 />
                 <button
-                  className="bg-[#CA3F2A] sm:text-xs md:text-md text-white px-[110px] py-1 rounded-md text-lg border-[#FFE3E3] border border-opacity-50"
+                  className="bg-[#CA3F2A] sm:text-xs  text-white md:px-[110px] md:py-1 rounded-md md:text-lg border-[#FFE3E3] border border-opacity-50"
                   onClick={onNavigate}
                 >
                   Next
