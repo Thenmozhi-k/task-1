@@ -33,7 +33,7 @@ const StepTwo = ({ onNavigate, onBack}) => {
                  <p className='md:text-xs sm:text-[10px] md:mt-2 sm:mt-1 md:ml-3 sm:ml-1'>Step 1</p>      
               </div>
 
-              <div className=' bg-[#CA3F2A] h-[0.5px] md:w-[90px] sm:w-[45px] md:mt-4 sm:mt-2 md:ml-3'></div>
+              <div className=' bg-[#CA3F2A] h-[0.5px] md:w-[90px] sm:w-[50px] md:mt-4 sm:mt-2 md:ml-3 sm:ml-2'></div>
           </div>
 
           <div className='flex ml-2'>
@@ -42,7 +42,7 @@ const StepTwo = ({ onNavigate, onBack}) => {
                  <p className='md:text-xs sm:text-[10px] md:mt-2 sm:mt-1 md:ml-3 sm:ml-1'>Step 2</p>      
               </div>
 
-              <div className=' bg-[#CA3F2A] h-[0.5px] md:w-[90px] sm:w-[45px] md:mt-4 sm:mt-2 md:ml-3'></div>
+              <div className=' bg-[#CA3F2A] h-[0.5px] md:w-[90px] sm:w-[50px] md:mt-4 sm:mt-2 md:ml-3 sm:ml-2'></div>
           </div>
 
           <div className='flex ml-2'>
@@ -65,9 +65,9 @@ const StepTwo = ({ onNavigate, onBack}) => {
           <input
             type="text"
             placeholder="Last Name"
-            className="border border-[#373737] bg-[#222222] sm:text-xs md:text-md rounded-md md:p-2 md:py-2 sm:py-1 md:mb-3 sm:mb-1  w-[70%] max-w-[400px] focus:outline-none focus:ring-[0.5px] focus:ring-[#FFCACA] text-white text-center"
+            className="border border-[#373737] bg-[#222222] sm:text-xs md:text-md rounded-md md:p-2 md:py-2 sm:py-1 md:mb-3 sm:mb-3  w-[70%] max-w-[400px] focus:outline-none focus:ring-[0.5px] focus:ring-[#FFCACA] text-white text-center"
           />
-          <ul className='list-disc list-inside text-[#FFC4BB] text-xs md:mb-10 sm:mb-3'>
+          <ul className='list-disc list-inside text-[#FFC4BB] md:text-xs sm:text-[10px] md:mb-10 sm:mb-3'>
               <li ><span className='ml-[-6px]'>Name should match govt ID proof</span></li>
             </ul>
           <div className='flex w-full sm:mt-[-17px] items-center justify-center '>

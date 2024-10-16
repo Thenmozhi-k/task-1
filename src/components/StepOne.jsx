@@ -30,7 +30,7 @@ const StepOne = ({ onNavigate, onBack }) => {
                   <img src={step} alt="step 1" className="md:w-7 md:h-7 sm:w-5 sm:h-5" />
                   <p className="md:text-xs sm:text-[10px] md:mt-2 sm:mt-1 md:ml-3 sm:ml-1">Step 1</p>
                 </div>
-                <div className="bg-[#CA3F2A] h-[0.5px] md:w-[90px] sm:w-[45px] md:mt-4 sm:mt-2 md:ml-3"></div>
+                <div className="bg-[#CA3F2A] h-[0.5px] md:w-[90px] sm:w-[50px] md:mt-4 sm:mt-2 md:ml-3 sm:ml-2"></div>
               </div>
 
               {/* Progress indicators */}
@@ -39,7 +39,7 @@ const StepOne = ({ onNavigate, onBack }) => {
                   <img src={step1} alt="step 2" className="md:w-7 md:h-7 sm:w-5 sm:h-5" />
                   <p className="md:text-xs sm:text-[10px] md:mt-2 sm:mt-1 md:ml-3 sm:ml-1 text-[#B1B1B1]">Step 2</p>
                 </div>
-                <div className="bg-[#CA3F2A] h-[0.5px] md:w-[90px] sm:w-[45px] md:mt-4 sm:mt-2 md:ml-3"></div>
+                <div className="bg-[#CA3F2A] h-[0.5px] md:w-[90px] sm:w-[50px] md:mt-4 sm:mt-2 md:ml-3 sm:ml-2"></div>
               </div>
 
               <div className="flex ml-2">
