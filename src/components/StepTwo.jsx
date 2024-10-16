@@ -33,7 +33,7 @@ const StepTwo = ({ onNavigate, onBack}) => {
                  <p className='md:text-xs sm:text-[10px] md:mt-2 sm:mt-1 md:ml-3 sm:ml-2'>Step 1</p>      
               </div>
 
-              <div className=' bg-[#CA3F2A] h-[0.5px] md:w-[90px] sm:w-[55px] md:mt-4 sm:mt-3 md:ml-3 sm:ml-2'></div>
+              <div className=' bg-[#CA3F2A] h-[0.5px] md:w-[90px] sm:w-[50px] md:mt-4 sm:mt-3 md:ml-3 sm:ml-2'></div>
           </div>
 
           <div className='flex ml-2'>
@@ -42,7 +42,7 @@ const StepTwo = ({ onNavigate, onBack}) => {
                  <p className='md:text-xs sm:text-[10px] md:mt-2 sm:mt-1 md:ml-3 sm:ml-2'>Step 2</p>      
               </div>
 
-              <div className=' bg-[#CA3F2A] h-[0.5px] md:w-[90px] sm:w-[55px] md:mt-4 sm:mt-3 md:ml-3 sm:ml-2'></div>
+              <div className=' bg-[#CA3F2A] h-[0.5px] md:w-[90px] sm:w-[50px] md:mt-4 sm:mt-3 md:ml-3 sm:ml-2'></div>
           </div>
 
           <div className='flex ml-2'>

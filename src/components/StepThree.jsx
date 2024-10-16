@@ -32,7 +32,7 @@ const StepThree = ({ onNavigate, onBack }) => {
                  <p className='md:text-xs sm:text-[10px] md:mt-2 sm:mt-1 md:ml-3 sm:ml-2'>Step 1</p>      
               </div>
 
-              <div className=' bg-[#CA3F2A] h-[0.5px] md:w-[90px] sm:w-[55px] md:mt-4 sm:mt-3 md:ml-3 sm:ml-2'></div>
+              <div className=' bg-[#CA3F2A] h-[0.5px] md:w-[90px] sm:w-[50px] md:mt-4 sm:mt-3 md:ml-3 sm:ml-2'></div>
           </div>
 
           <div className='flex ml-2'>
@@ -41,7 +41,7 @@ const StepThree = ({ onNavigate, onBack }) => {
                  <p className='md:text-xs sm:text-[10px] md:mt-2 sm:mt-1 md:ml-3 sm:ml-2'>Step 2</p>      
               </div>
 
-              <div className=' bg-[#CA3F2A] h-[0.5px] md:w-[90px] sm:w-[55px] md:mt-4 sm:mt-3 md:ml-3 sm:ml-2'></div>
+              <div className=' bg-[#CA3F2A] h-[0.5px] md:w-[90px] sm:w-[50px] md:mt-4 sm:mt-3 md:ml-3 sm:ml-2'></div>
           </div>
 
           <div className='flex ml-2'>
@@ -56,7 +56,7 @@ const StepThree = ({ onNavigate, onBack }) => {
 
           {/* form */}
           <div className="flex flex-col items-center  md:mt-9 sm:mt-5 "> 
-         <p className='text-center text-white md:text-sm sm:text-xs font-light md:mb-5 sm:mb-2'>You’re purchasing Superior room at the  Park Plaza <br /> Westminster Bridge London  Park Plaza Westminster <br /> Bridge London  from 24-06-2024 to 24-06-2024 <br /> for USDC 447.90 for 2 guests.</p>
+         <p className='text-center text-white md:text-sm sm:text-xs font-light md:mb-5 sm:mb-1'>You’re purchasing Superior room at the  Park Plaza <br /> Westminster Bridge London  Park Plaza Westminster <br /> Bridge London  from 24-06-2024 to 24-06-2024 <br /> for USDC 447.90 for 2 guests.</p>
           <div className='flex w-full items-center justify-center md:mt-7 sm:mt-5 '>
               <img src={arrow} alt="" className='md:w-9 md:h-9 sm:w-6 sm:h-6 mr-4 cursor-pointer' onClick={onBack}/>
           <button className="bg-[#CA3F2A] sm:text-xs  text-white md:px-[110px] sm:px-[68px] md:py-1 sm:py-1 rounded-md md:text-lg border-[#FFE3E3] border border-opacity-50   "
