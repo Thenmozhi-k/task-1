@@ -23,7 +23,7 @@ const StepOne = ({ onNavigate, onBack }) => {
           </div>
 
           {/* Content */}
-          <div className="md:mt-48 sm:mt-5">
+          <div className="md:mt-48 sm:mt-20">
             <div className="flex">
               <div className="flex ml-[-15px]">
                 <div className="text-white flex">
@@ -70,7 +70,7 @@ const StepOne = ({ onNavigate, onBack }) => {
                   onClick={onBack}
                 />
                 <button
-                  className="bg-[#CA3F2A] text-white px-[110px] py-1 rounded-md text-lg border-[#FFE3E3] border border-opacity-50"
+                  className="bg-[#CA3F2A] sm:text-xs text-white px-[110px] py-1 rounded-md text-lg border-[#FFE3E3] border border-opacity-50"
                   onClick={onNavigate}
                 >
                   Next
