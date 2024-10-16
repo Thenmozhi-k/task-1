@@ -35,7 +35,7 @@ const LaunchScreen = ({ onNavigate }) => {
           </div>
 
           {/* content */}
-          <div className='md:mt-5 sm:mt-2'>
+          <div className='md:mt-5 sm:mt-3'>
             <ul className='list-disc list-inside text-[#FFC4BB] md:text-xs sm:text-[9px]'>
               <li ><span className='ml-[-6px]'>Superior Room, Accessible (Westminster Superior Room)</span></li>
             </ul>
