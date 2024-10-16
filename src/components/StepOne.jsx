@@ -23,7 +23,7 @@ const StepOne = ({ onNavigate, onBack }) => {
           </div>
 
           {/* Content */}
-          <div className="mt-48">
+          <div className="md:mt-48 sm:mt-5">
             <div className="flex">
               <div className="flex ml-[-15px]">
                 <div className="text-white flex">
@@ -37,15 +37,15 @@ const StepOne = ({ onNavigate, onBack }) => {
               <div className="flex ml-2">
                 <div className="text-white flex">
                   <img src={step1} alt="step 2" className="md:w-7 md:h-7 sm:w-5 sm:h-5" />
-                  <p className="text-xs mt-2 ml-3 text-[#B1B1B1]">Step 2</p>
+                  <p className="md:text-xs sm:text-[10px] mt-2 ml-3 text-[#B1B1B1]">Step 2</p>
                 </div>
-                <div className="bg-[#CA3F2A] h-[0.5px] w-[90px] mt-4 ml-3"></div>
+                <div className="bg-[#CA3F2A] h-[0.5px] md:w-[90px] sm:w-[80px] mt-4 ml-3"></div>
               </div>
 
               <div className="flex ml-2">
                 <div className="text-white flex">
                   <img src={step1} alt="step 3" className="md:w-7 md:h-7 sm:w-5 sm:h-5" />
-                  <p className="text-xs mt-2 ml-3 text-[#B1B1B1]">Step 3</p>
+                  <p className="md:text-xs sm:text-[10px] mt-2 ml-3 text-[#B1B1B1]">Step 3</p>
                 </div>
               </div>
             </div>
@@ -55,12 +55,12 @@ const StepOne = ({ onNavigate, onBack }) => {
               <input
                 type="email"
                 placeholder="Email address"
-                className="border border-[#373737] bg-[#222222] rounded-md p-2 py-1 mb-4 w-[70%] max-w-[400px] focus:outline-none focus:ring-[0.5px] focus:ring-[#FFCACA] text-white text-center"
+                className="border border-[#373737] bg-[#222222] sm:text-xs rounded-md p-2 py-1 mb-4 w-[70%] max-w-[400px] focus:outline-none focus:ring-[0.5px] focus:ring-[#FFCACA] text-white text-center"
               />
               <input
                 type="tel"
                 placeholder="Mobile number"
-                className="border border-[#373737] bg-[#222222] rounded-md p-2 py-1 mb-9 w-[70%] max-w-[400px] focus:outline-none focus:ring-[0.5px] focus:ring-[#FFCACA] text-white text-center"
+                className="border border-[#373737] bg-[#222222] sm:text-xs rounded-md p-2 py-1 mb-9 w-[70%] max-w-[400px] focus:outline-none focus:ring-[0.5px] focus:ring-[#FFCACA] text-white text-center"
               />
               <div className="flex w-full items-center justify-center">
                 <img
