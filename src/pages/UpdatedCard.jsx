@@ -9,7 +9,7 @@ import Cancelled from '../components/Cancelled';
 import Backup from '../components/Backup';
 
 const UpdatedCard = () => {
-  const [currentPage, setCurrentPage] = useState('launch'); // Track the current page
+  const [currentPage, setCurrentPage] = useState('launch'); 
 
   // Handles navigation between pages
   const handleNavigation = (nextPage) => {
