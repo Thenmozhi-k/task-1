@@ -12,7 +12,7 @@ const LaunchScreen = ({ onNavigate }) => {
     <div className="flex justify-center items-center h-screen bg-black">
       <div className="relative md:w-[500px] md:h-[500px] sm:h-[350px] sm:w-[350px]   bg-[#161616] shadow-lg p-2 flex flex-col items-center">
         <div
-          className="relative shadow-lg md:w-[485px] md:h-[230px] sm:h-[185px] sm:w-[285px]  p-6 flex flex-col justify-between"
+          className="relative shadow-lg md:w-[485px] md:h-[230px] sm:h-[185px] sm:w-[300px]  p-6 flex flex-col justify-between"
           style={{
             backgroundImage: `url(${first})`,
             backgroundSize: 'cover',
