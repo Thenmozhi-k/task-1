@@ -20,7 +20,7 @@ const LaunchScreen = ({ onNavigate }) => {
             
           }}
         >
-          <div className='md:ml-[330px] sm:ml-[260px]'>
+          <div className='md:ml-[330px] sm:ml-[230px]'>
             <img src={buk} alt="" className='md:w-[70px] w-[50px] md:ml-12 sm:ml-[35px]' />
             <div className="flex items-center  md:mt-[140px] sm:mt-[110px]">
               <span className="text-white md:text-sm sm:text-xs mr-2">4.0</span>
