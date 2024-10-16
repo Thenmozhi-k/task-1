@@ -30,7 +30,7 @@ const StepOne = ({ onNavigate, onBack }) => {
                   <img src={step} alt="step 1" className="md:w-7 md:h-7 sm:w-5 sm:h-5" />
                   <p className="md:text-xs sm:text-[10px] mt-2 ml-3">Step 1</p>
                 </div>
-                <div className="bg-[#CA3F2A] h-[0.5px] md:w-[90px] sm:w-[70px] mt-4 ml-3"></div>
+                <div className="bg-[#CA3F2A] h-[0.5px] md:w-[90px] sm:w-[70px] mt-4 md:ml-3"></div>
               </div>
 
               {/* Progress indicators */}
@@ -39,7 +39,7 @@ const StepOne = ({ onNavigate, onBack }) => {
                   <img src={step1} alt="step 2" className="md:w-7 md:h-7 sm:w-5 sm:h-5" />
                   <p className="md:text-xs sm:text-[10px] mt-2 ml-3 text-[#B1B1B1]">Step 2</p>
                 </div>
-                <div className="bg-[#CA3F2A] h-[0.5px] md:w-[90px] sm:w-[70px] mt-4 ml-3"></div>
+                <div className="bg-[#CA3F2A] h-[0.5px] md:w-[90px] sm:w-[70px] mt-4 md:ml-3"></div>
               </div>
 
               <div className="flex ml-2">
@@ -66,11 +66,11 @@ const StepOne = ({ onNavigate, onBack }) => {
                 <img
                   src={arrow}
                   alt="arrow"
-                  className="md:w-9 md:h-9 sm:w-5 sm:h-5 mr-4 cursor-pointer"
+                  className="md:w-9 md:h-9 sm:w-6 sm:h-6 mr-4 cursor-pointer"
                   onClick={onBack}
                 />
                 <button
-                  className="bg-[#CA3F2A] sm:text-xs  text-white md:px-[110px] sm:px-[80px] md:py-1 rounded-md md:text-lg border-[#FFE3E3] border border-opacity-50"
+                  className="bg-[#CA3F2A] sm:text-xs  text-white md:px-[110px] sm:px-[80px] md:py-1 sm:py-1 rounded-md md:text-lg border-[#FFE3E3] border border-opacity-50"
                   onClick={onNavigate}
                 >
                   Next
