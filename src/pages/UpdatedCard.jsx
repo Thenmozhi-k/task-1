@@ -7,9 +7,10 @@ import SucessConfirmation from '../components/SucessConfirmation';
 import Resold from '../components/Resold';
 import Cancelled from '../components/Cancelled';
 import Backup from '../components/Backup';
+import TokenId from '../components/TokenId';
 
 const UpdatedCard = () => {
-  const [currentPage, setCurrentPage] = useState('launch'); 
+  const [currentPage, setCurrentPage] = useState('tokenid'); 
 
   // Handles navigation between pages
   const handleNavigation = (nextPage) => {
@@ -19,6 +20,9 @@ const UpdatedCard = () => {
   return (
     <div>
       {/* Conditional rendering for each page */}
+      {currentPage === 'tokenid' && (
+        <TokenId onNavigate={() => handleNavigation('launch')} />
+      )}
       {currentPage === 'launch' && (
         <LaunchScreen onNavigate={() => handleNavigation('stepone')} />
       )}
