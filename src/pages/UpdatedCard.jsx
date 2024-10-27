@@ -11,41 +11,50 @@ import TokenId from '../components/TokenId';
 
 const UpdatedCard = () => {
   const [currentPage, setCurrentPage] = useState('tokenid'); 
+  const [nftData, setNftData] = useState(null);
 
   // Handles navigation between pages
-  const handleNavigation = (nextPage) => {
-    setCurrentPage(nextPage);
-  };
+ const handleNavigation = (nextPage, data = null) => {
+   if (data) {
+     setNftData(data);
+   }
+   setCurrentPage(nextPage);
+ };
 
   return (
     <div>
       {/* Conditional rendering for each page */}
-      {currentPage === 'tokenid' && (
-        <TokenId onNavigate={() => handleNavigation('launch')} />
-      )}
-      {currentPage === 'launch' && (
-        <LaunchScreen onNavigate={() => handleNavigation('stepone')} />
-      )}
-      {currentPage === 'stepone' && (
-        <StepOne 
-          onNavigate={() => handleNavigation('steptwo')}
-          onBack={() => handleNavigation('launch')}
+      {currentPage === "tokenid" && (
+        <TokenId
+          onNavigate={(nextPage, data) => handleNavigation(nextPage, data)}
         />
       )}
-      {currentPage === 'steptwo' && (
-        <StepTwo 
-          onNavigate={() => handleNavigation('stepthree')} 
-          onBack={() => handleNavigation('stepone')} 
+      {currentPage === "launch" && (
+        <LaunchScreen
+          onNavigate={() => handleNavigation("stepone")}
+          nftData={nftData} // Pass the nftData here
         />
       )}
-      {currentPage === 'stepthree' && (
-        <StepThree 
-          onNavigate={() => handleNavigation('success')} 
-          onBack={() => handleNavigation('steptwo')} 
+      {currentPage === "stepone" && (
+        <StepOne
+          onNavigate={() => handleNavigation("steptwo")}
+          onBack={() => handleNavigation("launch")}
         />
       )}
-      {currentPage === 'success' && (
-        <SucessConfirmation onNavigate={() => handleNavigation('launch')} />
+      {currentPage === "steptwo" && (
+        <StepTwo
+          onNavigate={() => handleNavigation("stepthree")}
+          onBack={() => handleNavigation("stepone")}
+        />
+      )}
+      {currentPage === "stepthree" && (
+        <StepThree
+          onNavigate={() => handleNavigation("success")}
+          onBack={() => handleNavigation("steptwo")}
+        />
+      )}
+      {currentPage === "success" && (
+        <SucessConfirmation onNavigate={() => handleNavigation("launch")} />
       )}
     </div>
   );

@@ -1,30 +1,33 @@
 import React, { useState } from "react";
 import buk from "../assets/updated/buk.png";
+import axios from "axios";
 
 const TokenId = ({ onNavigate }) => {
-  const [url, setUrl] = useState(""); // State to hold the input URL
-  const [tokenId, setTokenId] = useState(null); // State to hold the extracted tokenId
-  const [error, setError] = useState(""); // State to hold any error messages
+  const [nftId, setNftId] = useState("");
+  const [error, setError] = useState(null);
 
   // Function to handle the submission
-  const handleSubmit = () => {
-    try {
-      const urlObject = new URL(url); // Create a URL object from the input URL
-      const queryParams = new URLSearchParams(urlObject.search); // Get the query params
-      const id = queryParams.get("tokenId"); // Extract the tokenId
+  // TokenId Component
+  const handleSubmit = async () => {
+    if (nftId.trim() === "") {
+      setError("Please enter a valid NFT ID.");
+      return;
+    }
 
-      if (id) {
-        setTokenId(id); // Set the extracted tokenId
-        setError(""); // Clear any previous error
-        onNavigate(id); // Call the onNavigate function with the tokenId if needed
-        console.log("Extracted Token ID:", id); // Log the extracted tokenId directly
+    try {
+      const response = await axios.get(
+        `https://api.polygon.dassets.xyz/v2/hotel/getNFTBooking?tokenId=${nftId}`
+      );
+
+      const data = response.data;
+      if (data && data.status === true) {
+        // Pass the nftId data
+        onNavigate("launch", nftId);
       } else {
-        setError("tokenId not found in the URL"); // Handle the case where tokenId is not found
+        setError("NFT booking details not found");
       }
-    } catch (error) {
-      setError("Invalid URL"); // Handle invalid URLs
-      setTokenId(null); // Reset tokenId
-      console.error(error); // Log the error for debugging
+    } catch (err) {
+      setError("NFT booking details not found");
     }
   };
 
@@ -32,7 +35,7 @@ const TokenId = ({ onNavigate }) => {
     <div className="flex justify-center items-center h-screen bg-black">
       <div className="relative md:w-[500px] md:h-[500px] sm:h-[350px] sm:w-[350px] bg-[#161616] shadow-lg p-2 flex flex-col items-center justify-center">
         <div className="relative w-full flex flex-col items-center justify-between">
-          <div className="">
+          <div>
             <img src={buk} alt="buk" className="md:w-[90px] w-[60px]" />
           </div>
 
@@ -41,29 +44,29 @@ const TokenId = ({ onNavigate }) => {
             {/* Form */}
             <div className="flex flex-col items-center justify-center md:mt-10 sm:mt-6 border border-[#FFC4BB] shadow-lg md:py-20 sm:py-4 rounded-lg w-[90%]">
               <label className="text-[#FFC4BB] md:text-md sm:text-xs md:mb-3 sm:mb-2">
-                Enter the URL
+                Enter NFT ID
               </label>
               <input
                 type="text"
-                value={url}
-                onChange={(e) => setUrl(e.target.value)} // Update state on input change
-                placeholder="Enter URL"
+                value={nftId}
+                onChange={(e) => {
+                  setNftId(e.target.value);
+                  setError(null); // Clear error on change
+                }}
+                placeholder="Enter NFT ID"
                 className="border border-[#373737] bg-[#222222] sm:text-xs md:text-md rounded-md md:p-2 sm:py-1 mb-4 w-[80%] max-w-[400px] focus:outline-none focus:ring-[0.5px] focus:ring-[#FFCACA] text-white text-center"
               />
               <div className="flex w-full justify-center">
                 <button
                   className="bg-[#CA3F2A] sm:text-xs text-white md:px-[145px] sm:px-[60px] md:py-1 sm:py-1 rounded-md md:text-lg border-[#FFE3E3] border border-opacity-50"
-                  onClick={handleSubmit} // Call the submit handler
+                  onClick={handleSubmit}
                 >
                   Submit
                 </button>
               </div>
-              {error && <p className="text-red-500 mt-2">{error}</p>}{" "}
+
               {/* Display error message if any */}
-              {tokenId && (
-                <p className="text-green-500 mt-2">Token ID: {tokenId}</p>
-              )}{" "}
-              {/* Display the extracted tokenId */}
+              {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
             </div>
           </div>
         </div>
