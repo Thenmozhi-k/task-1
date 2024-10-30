@@ -5,7 +5,7 @@ const contract_address = "0xe19D79B31278B65Aa7b77F3AEA260A3e21A5a618";
 
 // Define the Amoy network details
 const amoyNetwork = {
-  chainId: '80002', // Use the correct chain ID in hex format, 80002 is for Mumbai
+  chainId: '0x1F', // Use the correct chain ID in hex format, 80002 is for Mumbai
   chainName: 'Amoy Network',
   rpcUrls: ['https://rpc.amoy.network'], // Actual RPC URL
   nativeCurrency: {
