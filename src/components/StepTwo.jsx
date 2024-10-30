@@ -5,6 +5,7 @@ import step from '../assets/updated/step.png'
 import step1 from '../assets/updated/step1.png'
 import arrow from '../assets/updated/arrow.png'
 import step2 from '../assets/updated/step2.png'
+import WalletConnect from './Signer';
 
 const StepTwo = ({ onNavigate, onBack}) => {
   return (
@@ -54,23 +55,25 @@ const StepTwo = ({ onNavigate, onBack}) => {
               {/* <div className=' bg-[#CA3F2A] h-[0.5px] w-[80px] mt-4 ml-2'></div> */}
           </div>
           </div>
-
+          
           {/* form */}
-          <div className="flex flex-col items-center  md:mt-7 sm:mt-5 "> 
+          <div className="flex flex-col items-center  md:mt-2 sm:mt-5 "> 
+          <WalletConnect />
+
           <input
             type="text"
             placeholder="First Name"
-            className="border border-[#373737] bg-[#222222] sm:text-xs md:text-md rounded-md  md:p-2 md:py-2 sm:py-1 mb-4 w-[70%] max-w-[400px] focus:outline-none focus:ring-[0.5px] focus:ring-[#FFCACA] text-white text-center"
+            className="border border-[#373737] bg-[#222222] sm:text-xs md:text-md rounded-md  md:p-2 md:py-2 sm:py-1 mb-2 w-[70%] max-w-[400px] focus:outline-none focus:ring-[0.5px] focus:ring-[#FFCACA] text-white text-center"
           />
           <input
             type="text"
             placeholder="Last Name"
-            className="border border-[#373737] bg-[#222222] sm:text-xs md:text-md rounded-md md:p-2 md:py-2 sm:py-1 md:mb-3 sm:mb-0  w-[70%] max-w-[400px] focus:outline-none focus:ring-[0.5px] focus:ring-[#FFCACA] text-white text-center"
+            className="border border-[#373737] bg-[#222222] sm:text-xs md:text-md rounded-md md:p-2 md:py-2 sm:py-1 md:mb-2 sm:mb-0  w-[70%] max-w-[400px] focus:outline-none focus:ring-[0.5px] focus:ring-[#FFCACA] text-white text-center"
           />
-          <ul className='list-disc list-inside text-[#FFC4BB] md:text-xs sm:text-[10px] md:mb-10 sm:mb-5'>
+          <ul className='list-disc list-inside text-[#FFC4BB] md:text-xs sm:text-[10px] md:mb-2 sm:mb-5'>
               <li ><span className='ml-[-6px]'>Name should match govt ID proof</span></li>
             </ul>
-          <div className='flex w-full sm:mt-[-17px] items-center justify-center '>
+          <div className='flex w-full items-center justify-center '>
               <img src={arrow} alt="" className='md:w-9 md:h-9 sm:w-6 sm:h-6 mr-4 cursor-pointer' onClick={onBack}  />
           <button className="bg-[#CA3F2A] sm:text-xs  text-white md:px-[110px] sm:px-[68px] md:py-1 sm:py-1 rounded-md md:text-lg border-[#FFE3E3] border border-opacity-50  "
            onClick={onNavigate}>

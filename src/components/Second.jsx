@@ -1,5 +1,6 @@
 import React from 'react';
 import first from '../assets/second.png';
+import WalletConnect from './Signer';
 
 const Second = ({ onNavigate }) => {
   return (
