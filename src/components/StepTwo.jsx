@@ -9,43 +9,47 @@ import WalletConnect from './Signer';
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const StepTwo = ({ onNavigate, onBack, bookingData }) => {
-   const [quoteData, setQuoteData] = useState(null);
-useEffect(() => {
-  const fetchQuoteData = async () => {
-    const token = localStorage.getItem("accessToken");
+const StepTwo = ({ onNavigate, onBack, bookingData, setTotalPrice }) => {
+  const [quoteData, setQuoteData] = useState(null);
+  useEffect(() => {
+    const fetchQuoteData = async () => {
+      const token = localStorage.getItem("accessToken");
 
-    // Check that all required data is present before proceeding
-    if (
-      token &&
-      bookingData?.hash &&
-      bookingData.rooms?.[0]?.rates?.[0]?.optionHash
-    ) {
-      const { hash } = bookingData;
-      const optionHash = bookingData.rooms[0].rates[0].optionHash;
+      // Check that all required data is present before proceeding
+      if (
+        token &&
+        bookingData?.hash &&
+        bookingData.rooms?.[0]?.rates?.[0]?.optionHash
+      ) {
+        const { hash } = bookingData;
+        const optionHash = bookingData.rooms[0].rates[0].optionHash;
 
-      try {
-        const response = await axios.get(
-          `https://api.polygon.dassets.xyz/v2/hotel/getQuote?hash=${hash}&optionHash=${optionHash}`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-        console.log(response.data)
-        setQuoteData(response.data); // Handle the successful response
-      } catch (error) {
-        console.error("Error fetching hotel quote:", error); // Handle errors
+        try {
+          const response = await axios.get(
+            `https://api.polygon.dassets.xyz/v2/hotel/getQuote?hash=${hash}&optionHash=${optionHash}`,
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
+          const data = response.data;
+          const totalPrice = data.price?.totalWithDiscount;
+          console.log("Total:", totalPrice)
+          setQuoteData(data); 
+          setTotalPrice(totalPrice);
+
+        } catch (error) {
+          console.error("Error fetching hotel quote:", error); // Handle errors
+        }
+      } else {
+        console.warn("Access token is missing or booking data is incomplete.");
       }
-    } else {
-      console.warn("Access token is missing or booking data is incomplete.");
-    }
-  };
+    };
 
-  // Call the function to fetch data once when conditions are met
-  fetchQuoteData();
-}, [bookingData]);
+    // Call the function to fetch data once when conditions are met
+    fetchQuoteData();
+  }, [bookingData]);
 
 
 

@@ -11,6 +11,8 @@ const UpdatedCard = () => {
   const [nftData, setNftData] = useState(null);
   const [bookingData, setBookingData] = useState(null);
   const [Data, setData] = useState(null)
+  const [totalPrice, setTotalPrice] = useState(null);
+  const [tokenID, setTokenID] = useState(null);
 
   const handleNavigation = (nextPage, data = null) => {
     if (nextPage === "launch" && data) {
@@ -33,6 +35,7 @@ const UpdatedCard = () => {
         <LaunchScreen
           onNavigate={(nextPage, data) => handleNavigation(nextPage, data)}
           nftData={nftData}
+          setTokenID = {setTokenID}
         />
       )}
       {currentPage === "stepone" && (
@@ -48,7 +51,7 @@ const UpdatedCard = () => {
           bookingData={Data}
           onNavigate={() => handleNavigation("stepthree")}
           onBack={() => handleNavigation("stepone")}
-        
+          setTotalPrice = {setTotalPrice}
         />
       )}
       {currentPage === "stepthree" && (
@@ -56,6 +59,8 @@ const UpdatedCard = () => {
           bookingData={bookingData}
           onNavigate={() => handleNavigation("success")}
           onBack={() => handleNavigation("steptwo")}
+          totalPrice = {totalPrice}
+          tokenID = {tokenID}
         />
       )}
       {currentPage === "success" && (
