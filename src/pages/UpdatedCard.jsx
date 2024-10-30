@@ -1,29 +1,29 @@
-import React, { useState } from 'react';
-import LaunchScreen from '../components/LaunchScreen';
-import StepOne from '../components/StepOne';
-import StepTwo from '../components/StepTwo';
-import StepThree from '../components/StepThree';
-import SucessConfirmation from '../components/SucessConfirmation';
-import Resold from '../components/Resold';
-import Cancelled from '../components/Cancelled';
-import Backup from '../components/Backup';
-import TokenId from '../components/TokenId';
+import React, { useState } from "react";
+import LaunchScreen from "../components/LaunchScreen";
+import StepOne from "../components/StepOne";
+import StepTwo from "../components/StepTwo";
+import StepThree from "../components/StepThree";
+import SucessConfirmation from "../components/SucessConfirmation";
+import TokenId from "../components/TokenId";
 
 const UpdatedCard = () => {
-  const [currentPage, setCurrentPage] = useState('tokenid'); 
+  const [currentPage, setCurrentPage] = useState("tokenid");
   const [nftData, setNftData] = useState(null);
+  const [bookingData, setBookingData] = useState(null);
+  const [Data, setData] = useState(null)
 
-  // Handles navigation between pages
- const handleNavigation = (nextPage, data = null) => {
-   if (data) {
-     setNftData(data);
-   }
-   setCurrentPage(nextPage);
- };
+  const handleNavigation = (nextPage, data = null) => {
+    if (nextPage === "launch" && data) {
+      setNftData(data); // Set the nftData for LaunchScreen
+    } else if (data) {
+      setBookingData(data); // Pass bookingData for StepOne
+    }
+    setCurrentPage(nextPage);
+  };
+
 
   return (
     <div>
-      {/* Conditional rendering for each page */}
       {currentPage === "tokenid" && (
         <TokenId
           onNavigate={(nextPage, data) => handleNavigation(nextPage, data)}
@@ -31,24 +31,29 @@ const UpdatedCard = () => {
       )}
       {currentPage === "launch" && (
         <LaunchScreen
-          onNavigate={() => handleNavigation("stepone")}
-          nftData={nftData} // Pass the nftData here
+          onNavigate={(nextPage, data) => handleNavigation(nextPage, data)}
+          nftData={nftData}
         />
       )}
       {currentPage === "stepone" && (
         <StepOne
+          bookingData={bookingData}
           onNavigate={() => handleNavigation("steptwo")}
           onBack={() => handleNavigation("launch")}
+          setData={setData}
         />
       )}
       {currentPage === "steptwo" && (
         <StepTwo
+          bookingData={Data}
           onNavigate={() => handleNavigation("stepthree")}
           onBack={() => handleNavigation("stepone")}
+        
         />
       )}
       {currentPage === "stepthree" && (
         <StepThree
+          bookingData={bookingData}
           onNavigate={() => handleNavigation("success")}
           onBack={() => handleNavigation("steptwo")}
         />

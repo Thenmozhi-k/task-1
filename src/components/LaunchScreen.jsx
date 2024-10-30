@@ -192,7 +192,7 @@ const LaunchScreen = ({ onNavigate, nftData }) => {
               </button>
               <button
                 className="text-white bg-[#CA3F2A] border border-[#FFE3E3] md:px-9 md:py-2 sm:text-xs sm:px-4 sm:py-1 md:text-[16px] rounded-lg border-opacity-50"
-                onClick={onNavigate}
+                onClick={() => onNavigate("stepone", bookingData)}
               >
                 Buy Booking
               </button>

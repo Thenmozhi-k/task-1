@@ -14,47 +14,44 @@ const WalletConnect = () => {
     };
 
     const handleAuth = async (address, signature, timestamp) => {
-        try {
-            const response = await fetch(
-                "https://api.polygon.dassets.xyz/auth/user/login",
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({
-                        userId: address,
-                        loginToken: timestamp,
-                        signature: signature,
-                    }),
-                }
-            );
+      try {
+        const response = await fetch(
+          "https://api.polygon.dassets.xyz/auth/user/login",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              userId: address,
+              loginToken: timestamp,
+              signature: signature,
+            }),
+          }
+        );
 
-            if (!response.ok) {
-                throw new Error("Authentication failed");
-            }
-
-            const data = await response.json();
-            console.log("====================================");
-            console.log(data); 
-            console.log("====================================");
-
-            const jwt = data.data.accessToken;
-            console.log("Extracted JWT:", jwt);
-
-            if (!jwt) {
-                throw new Error("JWT not found in the response");
-            }
-
-            localStorage.setItem('jwt', jwt);
-            setIsAuthenticated(true);
-
-            return data;
-        } catch (err) {
-            console.error("Authentication error:", err);
-            throw new Error(err.message || "Authentication failed");
+        if (!response.ok) {
+          throw new Error("Authentication failed");
         }
+
+        const data = await response.json();
+        const jwt = data.data.accessToken;
+
+        if (!jwt) {
+          throw new Error("JWT not found in the response");
+        }
+
+        // Store token in localStorage under "accessToken"
+        localStorage.setItem("accessToken", jwt);
+        setIsAuthenticated(true);
+
+        return data;
+      } catch (err) {
+        console.error("Authentication error:", err);
+        throw new Error(err.message || "Authentication failed");
+      }
     };
+
 
     const connectAndSign = async () => {
         setIsConnecting(true);

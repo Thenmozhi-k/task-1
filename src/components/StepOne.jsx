@@ -1,15 +1,64 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import first from "../assets/updated/bg.png";
 import buk from "../assets/updated/buk.png";
 import step from "../assets/updated/step.png";
 import step1 from "../assets/updated/step1.png";
 import arrow from "../assets/updated/arrow.png";
+import { id } from "ethers";
 
-const StepOne = ({ onNavigate, onBack }) => {
+const StepOne = ({ bookingData, onNavigate, onBack, setData }) => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [emailError, setEmailError] = useState("");
   const [phoneError, setPhoneError] = useState("");
+   const [propertyId, setPropertyId] = useState("");
+   const [userInfo, setUserInfo] = useState("");
+   const [checkIn, setCheckIn] = useState("");
+   const [checkOut, setCheckOut] = useState("");
+   //const [Data, setData] = useState("7")
+
+
+   useEffect(() => {
+     // Set initial values from bookingData
+     if (bookingData) {
+       setPropertyId(bookingData?.data.booking.property?._id || "");
+       setUserInfo(bookingData?.data.userInfo || "");
+       setCheckIn(formatDate(bookingData?.data.checkIn)); // Format check-in date
+       setCheckOut(formatDate(bookingData?.data.checkOut)); // Format check-out date
+     }
+   }, [bookingData]);
+  console.log(bookingData);
+  const formatDate = (dateString) => {
+    if (!dateString) return ""; // Return empty if no date is provided
+    const date = new Date(dateString);
+    return date.toISOString().split("T")[0]; // Get YYYY-MM-DD format
+  };
+
+   const fetchHotelData = async () => {
+     const occupancyDetails = encodeURIComponent(
+       JSON.stringify([{ paxes: [{ age: 21 }, { age: 20 }] }])
+     );
+     const url = `https://api.polygon.dassets.xyz/v2/hotel/getHotel?id=${propertyId}&occupancyDetails=${occupancyDetails}&checkIn=${checkIn}&checkOut=${checkOut}`;
+
+     try {
+       const response = await axios.get(url);
+       console.log("Hotel data:", response.data);
+       setData(response.data)
+       //console.log(Data)
+       
+       // Handle or set the hotel data in state if needed
+     } catch (error) {
+       console.error("Error fetching hotel data:", error);
+     }
+   };
+
+   useEffect(() => {
+    console.log(checkIn,checkOut, propertyId, userInfo)
+     if (propertyId && checkIn && checkOut) {
+       fetchHotelData();
+     }
+   }, [propertyId, checkIn, checkOut]);
 
   // Function to validate email
   const validateEmail = (email) => {
@@ -45,6 +94,7 @@ const StepOne = ({ onNavigate, onBack }) => {
 
     // Proceed if all inputs are valid
     if (isValid) {
+      fetchHotelData();
       onNavigate();
     }
   };
