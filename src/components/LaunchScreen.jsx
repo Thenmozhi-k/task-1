@@ -8,7 +8,7 @@ import icon3 from "../assets/updated/icon3.png";
 import hline from "../assets/updated/Line 60.png";
 import vline from "../assets/updated/Line 62.png";
 
-const LaunchScreen = ({ onNavigate, nftData }) => {
+const LaunchScreen = ({ onNavigate, nftData, setTokenID }) => {
   const [bookingData, setBookingData] = useState(null);
   const [roomImage, setRoomImage] = useState(null);
 
@@ -21,6 +21,11 @@ const LaunchScreen = ({ onNavigate, nftData }) => {
           );
           const data = response.data;
           console.log(data);
+
+          const tokenID = nftData;
+          setTokenID(tokenID);
+
+
           if (data && data.status === true) {
             setBookingData(data); // Store booking data
 

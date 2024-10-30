@@ -36,6 +36,9 @@ const WalletConnect = () => {
 
         const data = await response.json();
         const jwt = data.data.accessToken;
+        console.log('====================================');
+        console.log("signer res", data);
+        console.log('====================================');
 
         if (!jwt) {
           throw new Error("JWT not found in the response");
