@@ -1,24 +1,30 @@
 import { ethers } from "ethers";
 import abi from "./abi.json";
+import tokenabi from "./tokenabi.json";
 
 const contract_address = "0xe19D79B31278B65Aa7b77F3AEA260A3e21A5a618";
 
 // Define the Amoy network details
 const amoyNetwork = {
-  chainId: '0x1F', // Use the correct chain ID in hex format, 80002 is for Mumbai
-  chainName: 'Amoy Network',
-  rpcUrls: ['https://rpc.amoy.network'], // Actual RPC URL
+  chainId: "0x1F", // Use the correct chain ID in hex format, 80002 is for Mumbai
+  chainName: "Amoy Network",
+  rpcUrls: ["https://rpc.amoy.network"], // Actual RPC URL
   nativeCurrency: {
-    name: 'Amoy',
-    symbol: 'AMOY',
+    name: "Amoy",
+    symbol: "AMOY",
     decimals: 18,
   },
-  blockExplorerUrls: ['https://explorer.amoy.network'], // Actual block explorer URL
+  blockExplorerUrls: ["https://explorer.amoy.network"], // Actual block explorer URL
 };
 
+const usdc_contract = "0x7cB3D276cCBD8DF74D0d7ef550f3201de0C1bF1C";
 // Check if MetaMask is installed
 const checkMetaMask = () => {
-  return typeof window !== "undefined" && window.ethereum && window.ethereum.isMetaMask;
+  return (
+    typeof window !== "undefined" &&
+    window.ethereum &&
+    window.ethereum.isMetaMask
+  );
 };
 
 // Request MetaMask account access
@@ -29,7 +35,7 @@ const requestAccount = async () => {
 
   try {
     const accounts = await window.ethereum.request({
-      method: 'eth_requestAccounts'
+      method: "eth_requestAccounts",
     });
     return accounts[0];
   } catch (error) {
@@ -41,7 +47,7 @@ const requestAccount = async () => {
 const switchToAmoyNetwork = async () => {
   try {
     await window.ethereum.request({
-      method: 'wallet_addEthereumChain',
+      method: "wallet_addEthereumChain",
       params: [amoyNetwork],
     });
     console.log("Switched to Amoy network");
@@ -58,27 +64,47 @@ export const buyRoom = async (_tokenId) => {
     }
 
     // Request account access first
-    await requestAccount();
+    // await requestAccount();
 
     // Create provider - using window.ethereum directly
     const provider = new ethers.BrowserProvider(window.ethereum);
-    
+
     // Get signer
     const signer = await provider.getSigner();
 
     // Check current network
-    const { chainId } = await provider.getNetwork();
-    if (chainId !== parseInt(amoyNetwork.chainId, 16)) {
-      await switchToAmoyNetwork();
-      return; // Exit if the network switch is successful
-    }
+    // const { chainId } = await provider.getNetwork();
+    // if (chainId !== parseInt(amoyNetwork.chainId, 16)) {
+    //   await switchToAmoyNetwork();
+    //   return; // Exit if the network switch is successful
+    // }
+
+    const token = new ethers.Contract(usdc_contract, tokenabi, signer);
 
     // Create contract instance
     const contract = new ethers.Contract(contract_address, abi, signer);
 
+    const res = await token.allowance(signer.address, contract_address);
+
+    console.log("Res of allowance", res);
+
+    if (res.toString() === "0") {
+      const approve = await token.approve(
+        contract_address,
+        "12412521512521521521125"
+      );
+      console.log("asfasfas");
+
+      await approve.wait();
+
+      console.log("arparvea", approve);
+    }
+
+    console.log("contactr of buk", contract);
+
     // Call the buyRoom function
-    const transaction = await contract.buyRoom(_tokenId, {
-      gasLimit: 300000 // Add a reasonable gas limit
+    const transaction = await contract.buyRoomBatch([_tokenId], {
+      gasLimit: 300000, // Add a reasonable gas limit
     });
 
     // Wait for transaction to be mined
@@ -86,7 +112,6 @@ export const buyRoom = async (_tokenId) => {
 
     console.log("Transaction successful:", receipt);
     return receipt;
-
   } catch (error) {
     console.error("Error executing buyRoom:", error);
     if (error.code === 4001) {
@@ -101,13 +126,13 @@ export const buyRoom = async (_tokenId) => {
 
 // Event listeners for account and network changes
 if (checkMetaMask()) {
-  window.ethereum.on('accountsChanged', (accounts) => {
-    console.log('Account changed:', accounts[0]);
+  window.ethereum.on("accountsChanged", (accounts) => {
+    console.log("Account changed:", accounts[0]);
     // You might want to trigger a refresh here
   });
 
-  window.ethereum.on('chainChanged', (chainId) => {
-    console.log('Network changed:', chainId);
+  window.ethereum.on("chainChanged", (chainId) => {
+    console.log("Network changed:", chainId);
     window.location.reload();
   });
 }
@@ -119,7 +144,7 @@ export const getCurrentAccount = async () => {
   if (!checkMetaMask()) return null;
   try {
     const accounts = await window.ethereum.request({
-      method: 'eth_accounts'
+      method: "eth_accounts",
     });
     return accounts[0];
   } catch (error) {
