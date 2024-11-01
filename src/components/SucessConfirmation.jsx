@@ -28,10 +28,10 @@ const SucessConfirmation = () => {
          <h2 className='text-white md:text-lg sm:text-sm'>Congratulations! <br />
          You own this booking now.</h2>
 
-         <div className='flex flex-col text-center '>
+         {/* <div className='flex flex-col text-center '>
             <p className='text-[#CA3F2A] md:text-xs sm:text-[8px]'> Transaction id: </p>
            <p className='md:text-[10px] sm:text-[6px] text-[#CACACA]'>0xbb9db37ae6a0b1cf4d09932b269255dbcc961228e572cc3ee526a397268aa243</p>
-         </div>
+         </div> */}
 
          <button className="bg-[#CA3F2A] text-white md:px-[40px] md:mt-8 sm:px-[30px] sm:mt-4 py-1 rounded-md md:text-lg sm:text-xs border-[#FFE3E3] border border-opacity-50   "
           >
