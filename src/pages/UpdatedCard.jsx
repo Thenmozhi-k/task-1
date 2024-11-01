@@ -64,7 +64,10 @@ const UpdatedCard = () => {
         />
       )}
       {currentPage === "success" && (
-        <SucessConfirmation onNavigate={() => handleNavigation("launch")} />
+        <SucessConfirmation onNavigate={() => handleNavigation("launch")} 
+        tokenID = {tokenID}
+        
+        />
       )}
     </div>
   );

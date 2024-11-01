@@ -91,6 +91,7 @@ export const buyRoom = async (_tokenId) => {
     console.log("Transaction sent:", transaction.hash);
     const receipt = await transaction.wait();
     console.log("Transaction successful:", receipt);
+    localStorage.setItem("transactionId", transaction.hash);
     return receipt;
 
   } catch (error) {
