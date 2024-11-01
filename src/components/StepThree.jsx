@@ -153,12 +153,19 @@ const [bookingData, setBookingData] = useState(null);
             <div className="flex flex-col items-center md:mt-9 sm:mt-5">
               <p className="text-center text-white md:text-sm sm:text-xs font-light md:mb-5 sm:mb-1">
                 You're purchasing Superior room at the{" "}
-                {bookingData.data.booking.property.address.address},{" "}
-                {bookingData.data.booking.property.address.city},{" "}
-                {bookingData.data.booking.property.address.country} from{" "}<br/>
+                {bookingData?.data?.booking?.property?.address?.address ||
+                  "unknown address"}
+                ,{" "}
+                {bookingData?.data?.booking?.property?.address?.city ||
+                  "unknown city"}
+                ,{" "}
+                {bookingData?.data?.booking?.property?.address?.country ||
+                  "unknown country"}{" "}
+                from <br />
                 {formattedDateCheckIn} to {formattedDateCheckOut} <br /> for
                 USDC {totalPrice} for 2 guests.
               </p>
+
               <div className="flex w-full items-center justify-center md:mt-7 sm:mt-5">
                 <img
                   src={arrow}
