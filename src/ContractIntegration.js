@@ -3,22 +3,21 @@ import abi from "./abi.json";
 import tokenabi from "./tokenabi.json";
 
 const contract_address = "0xe19D79B31278B65Aa7b77F3AEA260A3e21A5a618";
+const usdc_contract = "0x7cB3D276cCBD8DF74D0d7ef550f3201de0C1bF1C";
+const RPC_URL = "https://polygon-amoy.g.alchemy.com/v2/sHUCKj3avsgc_b1afxgc_DHYkbq3kYzM";
 
-// Define the Amoy network details
 const amoyNetwork = {
-  chainId: "0x1F", // Use the correct chain ID in hex format, 80002 is for Mumbai
+  chainId: "0x1F",
   chainName: "Amoy Network",
-  rpcUrls: ["https://rpc.amoy.network"], // Actual RPC URL
+  rpcUrls: ["https://rpc.amoy.network"],
   nativeCurrency: {
     name: "Amoy",
     symbol: "AMOY",
     decimals: 18,
   },
-  blockExplorerUrls: ["https://explorer.amoy.network"], // Actual block explorer URL
+  blockExplorerUrls: ["https://explorer.amoy.network"],
 };
 
-const usdc_contract = "0x7cB3D276cCBD8DF74D0d7ef550f3201de0C1bF1C";
-// Check if MetaMask is installed
 const checkMetaMask = () => {
   return (
     typeof window !== "undefined" &&
@@ -27,23 +26,6 @@ const checkMetaMask = () => {
   );
 };
 
-// Request MetaMask account access
-const requestAccount = async () => {
-  if (!checkMetaMask()) {
-    throw new Error("Please install MetaMask to continue");
-  }
-
-  try {
-    const accounts = await window.ethereum.request({
-      method: "eth_requestAccounts",
-    });
-    return accounts[0];
-  } catch (error) {
-    throw new Error("Failed to connect to MetaMask");
-  }
-};
-
-// Switch to Amoy network if not already on it
 const switchToAmoyNetwork = async () => {
   try {
     await window.ethereum.request({
@@ -53,82 +35,84 @@ const switchToAmoyNetwork = async () => {
     console.log("Switched to Amoy network");
   } catch (error) {
     console.error("Failed to switch networks:", error);
+    throw error;
   }
 };
 
-// Define buyRoom function
 export const buyRoom = async (_tokenId) => {
   try {
     if (!checkMetaMask()) {
       throw new Error("Please install MetaMask to continue");
     }
 
-    // Request account access first
-    // await requestAccount();
+    // Create RPC provider for reading state
+    const rpcProvider = new ethers.JsonRpcProvider(RPC_URL);
+    
+    // Get MetaMask provider and signer for transactions
+    const metamaskProvider = new ethers.BrowserProvider(window.ethereum);
+    const signer = await metamaskProvider.getSigner();
 
-    // Create provider - using window.ethereum directly
-    const provider = new ethers.BrowserProvider(window.ethereum);
+    // Create contract instances with RPC provider for reading
+    const tokenWithProvider = new ethers.Contract(usdc_contract, tokenabi, rpcProvider);
+    const contractWithProvider = new ethers.Contract(contract_address, abi, rpcProvider);
 
-    // Get signer
-    const signer = await provider.getSigner();
+    // Create contract instances with signer for transactions
+    const token = tokenWithProvider.connect(signer);
+    const contract = contractWithProvider.connect(signer);
 
-    // Check current network
-    // const { chainId } = await provider.getNetwork();
-    // if (chainId !== parseInt(amoyNetwork.chainId, 16)) {
-    //   await switchToAmoyNetwork();
-    //   return; // Exit if the network switch is successful
-    // }
-
-    const token = new ethers.Contract(usdc_contract, tokenabi, signer);
-
-    // Create contract instance
-    const contract = new ethers.Contract(contract_address, abi, signer);
-
-    const res = await token.allowance(signer.address, contract_address);
-
-    console.log("Res of allowance", res);
+    // Check allowance using RPC provider (faster read)
+    const userAddress = await signer.getAddress();
+    const res = await tokenWithProvider.allowance(userAddress, contract_address);
+    console.log("Allowance result:", res.toString());
 
     if (res.toString() === "0") {
+      console.log("Approving token...");
       const approve = await token.approve(
         contract_address,
         "12412521512521521521125"
       );
-      console.log("asfasfas");
-
       await approve.wait();
-
-      console.log("arparvea", approve);
+      console.log("Approval transaction complete:", approve.hash);
     }
 
-    console.log("contactr of buk", contract);
+    // Get gas estimate using RPC provider
+    const gasEstimate = await contractWithProvider.buyRoomBatch.estimateGas(
+      [_tokenId],
+      { from: userAddress }
+    );
 
-    // Call the buyRoom function
+    console.log("Estimated gas:", gasEstimate.toString());
+
+    // Execute transaction with signer and estimated gas
     const transaction = await contract.buyRoomBatch([_tokenId], {
-      gasLimit: 300000, // Add a reasonable gas limit
+      gasLimit: Math.ceil(Number(gasEstimate) * 1.2), // Add 20% buffer
     });
 
-    // Wait for transaction to be mined
+    console.log("Transaction sent:", transaction.hash);
     const receipt = await transaction.wait();
-
     console.log("Transaction successful:", receipt);
     return receipt;
+
   } catch (error) {
     console.error("Error executing buyRoom:", error);
+    
     if (error.code === 4001) {
       throw new Error("Transaction rejected by user");
+    } else if (error.code === -32603) {
+      throw new Error("Internal RPC error. Please check your balance and try again.");
     } else if (error.message.includes("user rejected")) {
       throw new Error("User rejected the connection request");
+    } else if (error.message.includes("insufficient funds")) {
+      throw new Error("Insufficient funds for transaction");
     } else {
       throw new Error(`Failed to execute buyRoom: ${error.message}`);
     }
   }
 };
 
-// Event listeners for account and network changes
 if (checkMetaMask()) {
   window.ethereum.on("accountsChanged", (accounts) => {
     console.log("Account changed:", accounts[0]);
-    // You might want to trigger a refresh here
   });
 
   window.ethereum.on("chainChanged", (chainId) => {
@@ -137,7 +121,6 @@ if (checkMetaMask()) {
   });
 }
 
-// Utility functions
 export const isMetaMaskInstalled = checkMetaMask;
 
 export const getCurrentAccount = async () => {
