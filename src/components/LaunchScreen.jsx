@@ -8,7 +8,7 @@ import icon3 from "../assets/updated/icon3.png";
 import hline from "../assets/updated/Line 60.png";
 import vline from "../assets/updated/Line 62.png";
 
-const LaunchScreen = ({ onNavigate, nftData, setTokenID }) => {
+const LaunchScreen = ({ onNavigate, nftData, setTokenID, }) => {
   const [bookingData, setBookingData] = useState(null);
   const [roomImage, setRoomImage] = useState(null);
 
@@ -35,6 +35,7 @@ const LaunchScreen = ({ onNavigate, nftData, setTokenID }) => {
             );
             if (mainImage) {
               setRoomImage(mainImage.hdUrl); // Set the roomImage to the hdUrl
+              
             }
           }
         } catch (error) {

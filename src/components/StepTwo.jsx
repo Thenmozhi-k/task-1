@@ -9,8 +9,40 @@ import WalletConnect from './Signer';
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const StepTwo = ({ onNavigate, onBack, bookingData, setTotalPrice }) => {
+const StepTwo = ({ onNavigate, onBack, bookingData, setTotalPrice, nftData }) => {
   const [quoteData, setQuoteData] = useState(null);
+  const [roomImage, setRoomImage] = useState(null);
+
+  useEffect(() => {
+    const fetchBookingData = async () => {
+      if (nftData) {
+        try {
+          const response = await axios.get(
+            `https://api.polygon.dassets.xyz/v2/hotel/getNFTBooking?tokenId=${nftData}`
+          );
+          const data = response.data;
+          console.log(data);
+
+          const tokenID = nftData;
+
+          if (data && data.status === true) {
+            // Find the image with mainImage set to true and set roomImage
+            const mainImage = data.data.booking.property.images.find(
+              (image) => image.mainImage === true
+            );
+            if (mainImage) {
+              setRoomImage(mainImage.hdUrl); // Set the roomImage to the hdUrl
+              console.log(roomImage);
+            }
+          }
+        } catch (error) {
+          console.error("Error fetching NFT booking details:", error);
+        }
+      }
+    };
+
+    fetchBookingData();
+  }, [nftData]);
   useEffect(() => {
     const fetchQuoteData = async () => {
       const token = localStorage.getItem("accessToken");
@@ -59,7 +91,7 @@ const StepTwo = ({ onNavigate, onBack, bookingData, setTotalPrice }) => {
         <div
           className="relative shadow-lg md:w-[485px] md:h-[230px] sm:h-[160px] sm:w-[335px] p-6 flex flex-col justify-between"
           style={{
-            backgroundImage: `url(${first})`,
+            backgroundImage: `url(${roomImage})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}

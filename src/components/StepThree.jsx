@@ -1,14 +1,71 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import first from "../assets/updated/bg.png";
 import buk from "../assets/updated/buk.png";
 import step from "../assets/updated/step.png";
 import arrow from "../assets/updated/arrow.png";
 import step2 from "../assets/updated/step2.png";
 import { buyRoom } from "../ContractIntegration";
+import axios from "axios";
 
-const StepThree = ({ onNavigate, onBack, totalPrice, tokenID }) => {
+const StepThree = ({ onNavigate, onBack, totalPrice, tokenID, nftData }) => {
   const [isLoading, setIsLoading] = useState(false);
   const _tokenId = tokenID;
+  const [roomImage, setRoomImage] = useState(null);
+const [bookingData, setBookingData] = useState(null);
+
+  useEffect(() => {
+    const fetchBookingData = async () => {
+      if (nftData) {
+        try {
+          const response = await axios.get(
+            `https://api.polygon.dassets.xyz/v2/hotel/getNFTBooking?tokenId=${nftData}`
+          );
+          const data = response.data;
+          console.log(data);
+
+          const tokenID = nftData;
+
+          if (data && data.status === true) {
+             setBookingData(data);
+            // Find the image with mainImage set to true and set roomImage
+            const mainImage = data.data.booking.property.images.find(
+              (image) => image.mainImage === true
+            );
+            if (mainImage) {
+              setRoomImage(mainImage.hdUrl); // Set the roomImage to the hdUrl
+              console.log(roomImage);
+            }
+          }
+        } catch (error) {
+          console.error("Error fetching NFT booking details:", error);
+        }
+      }
+    };
+
+    fetchBookingData();
+  }, [nftData]);
+
+    const checkInDate = bookingData?.data?.checkIn
+      ? new Date(bookingData.data.checkIn)
+      : null;
+    const formattedDateCheckIn = checkInDate
+      ? `${checkInDate.getDate().toString().padStart(2, "0")}-${(
+          checkInDate.getMonth() + 1
+        )
+          .toString()
+          .padStart(2, "0")}-${checkInDate.getFullYear()}`
+      : "";
+
+    const checkOutDate = bookingData?.data?.checkOut
+      ? new Date(bookingData.data.checkOut)
+      : null;
+    const formattedDateCheckOut = checkOutDate
+      ? checkOutDate.toLocaleDateString("en-GB", {
+          day: "2-digit",
+          month: "long",
+          year: "numeric",
+        })
+      : "";
 
   const handleBuyRoom = async () => {
     setIsLoading(true);
@@ -30,14 +87,13 @@ const StepThree = ({ onNavigate, onBack, totalPrice, tokenID }) => {
     }
   };
 
-
   return (
     <div className="flex justify-center items-center h-screen bg-black">
       <div className="relative md:w-[500px] md:h-[500px] sm:h-[350px] sm:w-[350px] bg-[#161616] shadow-lg p-2 flex flex-col items-center">
         <div
           className="relative shadow-lg md:w-[485px] md:h-[230px] sm:h-[160px] sm:w-[335px] p-6 flex flex-col justify-between"
           style={{
-            backgroundImage: `url(${first})`,
+            backgroundImage: `url(${roomImage})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
@@ -96,10 +152,12 @@ const StepThree = ({ onNavigate, onBack, totalPrice, tokenID }) => {
 
             <div className="flex flex-col items-center md:mt-9 sm:mt-5">
               <p className="text-center text-white md:text-sm sm:text-xs font-light md:mb-5 sm:mb-1">
-                You're purchasing Superior room at the Park Plaza <br />
-                Westminster Bridge London Park Plaza Westminster <br /> Bridge
-                London from 24-06-2024 to 24-06-2024 <br /> for USDC {totalPrice}{" "}
-                for 2 guests.
+                You're purchasing Superior room at the{" "}
+                {bookingData.data.booking.property.address.address},{" "}
+                {bookingData.data.booking.property.address.city},{" "}
+                {bookingData.data.booking.property.address.country} from{" "}<br/>
+                {formattedDateCheckIn} to {formattedDateCheckOut} <br /> for
+                USDC {totalPrice} for 2 guests.
               </p>
               <div className="flex w-full items-center justify-center md:mt-7 sm:mt-5">
                 <img

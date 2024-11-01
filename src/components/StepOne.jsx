@@ -7,7 +7,7 @@ import step1 from "../assets/updated/step1.png";
 import arrow from "../assets/updated/arrow.png";
 import { id } from "ethers";
 
-const StepOne = ({ bookingData, onNavigate, onBack, setData }) => {
+const StepOne = ({ bookingData, onNavigate, onBack, setData, nftData }) => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [emailError, setEmailError] = useState("");
@@ -16,8 +16,41 @@ const StepOne = ({ bookingData, onNavigate, onBack, setData }) => {
    const [userInfo, setUserInfo] = useState("");
    const [checkIn, setCheckIn] = useState("");
    const [checkOut, setCheckOut] = useState("");
-   //const [Data, setData] = useState("7")
+  const [roomImage, setRoomImage] = useState(null)
 
+   useEffect(() => {
+     const fetchBookingData = async () => {
+       if (nftData) {
+         try {
+           const response = await axios.get(
+             `https://api.polygon.dassets.xyz/v2/hotel/getNFTBooking?tokenId=${nftData}`
+           );
+           const data = response.data;
+           console.log(data);
+
+           const tokenID = nftData;
+           
+
+           if (data && data.status === true) {
+            
+
+             // Find the image with mainImage set to true and set roomImage
+             const mainImage = data.data.booking.property.images.find(
+               (image) => image.mainImage === true
+             );
+             if (mainImage) {
+               setRoomImage(mainImage.hdUrl); // Set the roomImage to the hdUrl
+               console.log(roomImage)
+             }
+           }
+         } catch (error) {
+           console.error("Error fetching NFT booking details:", error);
+         }
+       }
+     };
+
+     fetchBookingData();
+   }, [nftData]);
 
    useEffect(() => {
      // Set initial values from bookingData
@@ -45,7 +78,7 @@ const StepOne = ({ bookingData, onNavigate, onBack, setData }) => {
        const response = await axios.get(url);
        console.log("Hotel data:", response.data);
        setData(response.data)
-       //console.log(Data)
+      //console.log(Data)
        
        // Handle or set the hotel data in state if needed
      } catch (error) {
@@ -112,7 +145,7 @@ const StepOne = ({ bookingData, onNavigate, onBack, setData }) => {
         <div
           className="relative shadow-lg md:w-[485px] md:h-[230px] sm:h-[160px] sm:w-[335px] p-6 flex flex-col justify-between"
           style={{
-            backgroundImage: `url(${first})`,
+            backgroundImage: `url(${roomImage})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}

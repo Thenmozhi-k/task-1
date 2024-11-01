@@ -13,6 +13,9 @@ const UpdatedCard = () => {
   const [Data, setData] = useState(null)
   const [totalPrice, setTotalPrice] = useState(null);
   const [tokenID, setTokenID] = useState(null);
+  const [Image, setImage] = useState(null)
+ 
+  
 
   const handleNavigation = (nextPage, data = null) => {
     if (nextPage === "launch" && data) {
@@ -35,11 +38,12 @@ const UpdatedCard = () => {
         <LaunchScreen
           onNavigate={(nextPage, data) => handleNavigation(nextPage, data)}
           nftData={nftData}
-          setTokenID = {setTokenID}
+          setTokenID={setTokenID}
         />
       )}
       {currentPage === "stepone" && (
         <StepOne
+          nftData={nftData}
           bookingData={bookingData}
           onNavigate={() => handleNavigation("steptwo")}
           onBack={() => handleNavigation("launch")}
@@ -48,25 +52,27 @@ const UpdatedCard = () => {
       )}
       {currentPage === "steptwo" && (
         <StepTwo
+          nftData={nftData}
           bookingData={Data}
           onNavigate={() => handleNavigation("stepthree")}
           onBack={() => handleNavigation("stepone")}
-          setTotalPrice = {setTotalPrice}
+          setTotalPrice={setTotalPrice}
         />
       )}
       {currentPage === "stepthree" && (
         <StepThree
+          nftData={nftData}
           bookingData={bookingData}
           onNavigate={() => handleNavigation("success")}
           onBack={() => handleNavigation("steptwo")}
-          totalPrice = {totalPrice}
-          tokenID = {tokenID}
+          totalPrice={totalPrice}
+          tokenID={tokenID}
         />
       )}
       {currentPage === "success" && (
-        <SucessConfirmation onNavigate={() => handleNavigation("launch")} 
-        tokenID = {tokenID}
-        
+        <SucessConfirmation
+          onNavigate={() => handleNavigation("launch")}
+          tokenID={tokenID}
         />
       )}
     </div>
